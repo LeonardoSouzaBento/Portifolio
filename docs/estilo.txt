@@ -1,0 +1,5 @@
+Estilos basicos:
+
+Paleta: azul e verde.
+
+Card com minha foto: redondo, com sombra grande e espalhada; 

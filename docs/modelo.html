@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio de Leonardo Souza Bento</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9f506",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#23220f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'react-pattern': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%239C92AC\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-black">
+<div class="relative flex flex-col min-h-screen w-full overflow-x-hidden bg-react-pattern bg-fixed">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-[#1a1a0f]/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
+<div class="px-4 md:px-10 py-3 max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 bg-black text-primary rounded-full">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Leonardo Souza Bento</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-slate-600 dark:text-stone-300 text-sm font-medium hover:text-black dark:hover:text-primary transition-colors" href="#contact">Contact</a>
+<a class="text-slate-600 dark:text-stone-300 text-sm font-medium hover:text-black dark:hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="text-slate-600 dark:text-stone-300 text-sm font-medium hover:text-black dark:hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-slate-600 dark:text-stone-300 text-sm font-medium hover:text-black dark:hover:text-primary transition-colors" href="#projects">Projects</a>
+</nav>
+<button class="flex items-center justify-center h-10 px-6 bg-primary text-black text-sm font-bold rounded-full hover:bg-yellow-300 transition-colors">
+                        Download Resume
+                    </button>
+</div>
+<button class="md:hidden p-2 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full py-16 md:py-24 px-4 md:px-10 max-w-7xl mx-auto">
+<div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+<div class="flex-1 flex flex-col gap-6 text-center md:text-left">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-yellow-700 dark:text-yellow-200 text-xs font-bold uppercase tracking-wider mb-4">
+                            Available for work
+                        </div>
+<h1 class="text-slate-900 dark:text-white text-5xl md:text-6xl font-black leading-[1.1] tracking-tight mb-4">
+                            Building digital <br/>
+<span class="relative inline-block">
+<span class="relative z-10">experiences</span>
+<span class="absolute bottom-1 left-0 w-full h-3 bg-primary -z-0 rotate-1 rounded-full opacity-60"></span>
+</span>
+                             that matter.
+                        </h1>
+<h2 class="text-slate-600 dark:text-stone-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl">
+                            Hi, I'm <strong class="text-slate-900 dark:text-white">Leonardo</strong>. A React Front End Developer crafting modern, responsive, and high-performance web applications with a focus on user experience.
+                        </h2>
+</div>
+<div class="flex flex-wrap gap-4 justify-center md:justify-start mt-4">
+<a class="flex items-center justify-center h-12 px-8 bg-slate-900 dark:bg-white text-white dark:text-black text-base font-bold rounded-full hover:opacity-90 transition-opacity" href="#projects">
+                            View Projects
+                        </a>
+<a class="flex items-center justify-center h-12 px-8 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 text-slate-900 dark:text-white text-base font-bold rounded-full hover:bg-stone-50 dark:hover:bg-stone-700 transition-colors" href="#contact">
+                            Contact Me
+                        </a>
+</div>
+</div>
+<div class="relative shrink-0">
+<div class="absolute inset-0 bg-primary blur-[60px] opacity-30 rounded-full scale-110"></div>
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-stone-800 shadow-2xl">
+<img alt="Leonardo Souza Bento" class="w-full h-full object-cover" data-alt="Portrait of Leonardo smiling in a casual setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO0QvloYQjMeDvHVRiO5eDE0LAd6BJQvVnLrPXiwNCmMDz6q2xI_u8Qnr-BI45fGBoF-EwNhg5J0XyUxg61OlXo6tsIXzQ2GeVtYet3bhoitZemZmehrAGCAZF64dRHuw5gWeH6zQ48S71nv2sYhaR2rECU1_f_cvbaYWHUCcVjy8Tx3u2OpjqQoDF0-ADyhMojKZLw_ZUVBNXFQPl2NkFCxC0bT1oOiuCp9z1bLZPbARkR2Y33jD5S7CancG4_Qxy9exxw65O0Lc"/>
+</div>
+</div>
+</div>
+</section>
+<!-- How to find me (Contact) -->
+<section class="px-4 md:px-10 max-w-7xl mx-auto w-full mb-12" id="contact">
+<div class="bg-white dark:bg-[#1f1e16] rounded-2xl p-6 shadow-sm border border-stone-100 dark:border-stone-800">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<a class="group flex items-center gap-4 p-2 rounded-xl hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors" href="mailto:leonardo@example.com">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-yellow-800 dark:text-yellow-200 group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-stone-500 font-medium uppercase tracking-wider">Email</span>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">leonardo@example.com</span>
+</div>
+</a>
+<a class="group flex items-center gap-4 p-2 rounded-xl hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors" href="tel:+5511999999999">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-yellow-800 dark:text-yellow-200 group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-stone-500 font-medium uppercase tracking-wider">Phone</span>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">+55 11 99999-9999</span>
+</div>
+</a>
+<a class="group flex items-center gap-4 p-2 rounded-xl hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors" href="#">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-yellow-800 dark:text-yellow-200 group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-stone-500 font-medium uppercase tracking-wider">GitHub</span>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">github.com/leonardo</span>
+</div>
+</a>
+<a class="group flex items-center gap-4 p-2 rounded-xl hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors" href="#">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-yellow-800 dark:text-yellow-200 group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-stone-500 font-medium uppercase tracking-wider">LinkedIn</span>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">in/leonardosb</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Technologies -->
+<section class="px-4 md:px-10 max-w-7xl mx-auto w-full py-10" id="skills">
+<h3 class="text-slate-900 dark:text-white text-2xl font-bold mb-6">Technologies I Master</h3>
+<div class="flex flex-wrap gap-3">
+<!-- Tech Chips -->
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-blue-500">data_object</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">React</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-yellow-500">javascript</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">JavaScript / TypeScript</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-pink-500">style</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">Styled Components</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-cyan-500">css</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">Tailwind CSS</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-purple-500">layers</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">Shadcn UI</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-green-500">api</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">Axios</span>
+</div>
+<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#1f1e16] border border-stone-200 dark:border-stone-800 shadow-sm transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-orange-500">database</span>
+<span class="font-semibold text-sm text-slate-800 dark:text-stone-200">Firebase</span>
+</div>
+</div>
+</section>
+<!-- About & Principles Grid -->
+<section class="px-4 md:px-10 max-w-7xl mx-auto w-full py-12" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Values -->
+<div class="bg-white dark:bg-[#1f1e16] p-8 rounded-2xl border border-stone-100 dark:border-stone-800 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary rounded-lg text-black">
+<span class="material-symbols-outlined">person</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">What kind of person I am</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Proactive Learner</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">Always exploring new frameworks and tools to improve efficiency and code quality.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Collaborative Team Player</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">I believe in open communication and constructive feedback to build better products together.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Problem Solver</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">I approach bugs and challenges with a logical mindset, ensuring robust solutions.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Principles -->
+<div class="bg-white dark:bg-[#1f1e16] p-8 rounded-2xl border border-stone-100 dark:border-stone-800 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary rounded-lg text-black">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">What to expect from my projects</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">star</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Clean &amp; Maintainable Code</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">Writing code that is easy to read, test, and scale for future developers.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">star</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Responsive Design</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">Ensuring a seamless experience across all devices, from mobile to desktop.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">star</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Performance Focused</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mt-1">Optimizing assets and render cycles for fast load times and smooth interactions.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="px-4 md:px-10 max-w-7xl mx-auto w-full py-16" id="projects">
+<div class="flex items-center justify-between mb-10">
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">Featured Projects</h3>
+<a class="hidden sm:flex items-center gap-1 text-sm font-bold text-slate-600 dark:text-stone-300 hover:text-primary transition-colors" href="#">
+                    View GitHub <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="group bg-white dark:bg-[#1f1e16] rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="E-commerce Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot of an E-commerce dashboard interface showing graphs and lists" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoMFRGsBxVWI342V-pKN7A9QlpjQMEKVmO7Qv-IwGHlMYF-OiRgGrUpQeF0oieTELPTXXWD5qBigX5yoU4LJY3efueDMiXOet8uvFSrZ_hyl8Sl1Y8swod2osdFBVci_jje3uE7zDzGINB72BxqMnKz0Kzwwl9R_lGxQuc0WdPZQExjfTwhxxoKPA9E3tsvxM8H4ssW8B8il6MLK_DICZ5AYN4Kec_6UNffmST2R2ix18vYHNF8xYH0fW4V7ejRs_-zN72goqmCi4"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            React
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">E-commerce Dashboard</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mb-4 line-clamp-3">
+                            A comprehensive admin dashboard for managing products, orders, and customer analytics. Features real-time data visualization and theme customization.
+                        </p>
+<div class="mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Tailwind</span>
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Recharts</span>
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Redux</span>
+</div>
+<div class="flex gap-3">
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary underline decoration-primary decoration-2 underline-offset-4" href="#">Live Demo</a>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary" href="#">Source Code</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group bg-white dark:bg-[#1f1e16] rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Social Connect App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract representation of social connections and chat bubbles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbDY7vj-Dpkdb8OOETNoWW-eNhpIIjdka0f66gj-KFzhTMWdYWTKeH94G3Dy_SHboHZfL66ycIFz-o_0zv1NDim71s9gk2Ylp4ByJ8K6ATaLNBSfrWB5JvgglobD7M6mh6c5jf3VXF3d8uNsHuJeb_tPEvHCjC_8ssNqXlS9yqg3VgDNSbWh_6VkaenMpr_nuzQg_4pB7xtrU4ODwI5ABncH77rPVgKLsORhv3hkmlzJOEkmJPZfgTijG-hyy8cjWKO6G4dPn14Ik"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Firebase
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Social Connect App</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mb-4 line-clamp-3">
+                            A real-time messaging and social feed application. Users can post updates, comment, and chat instantly with friends securely.
+                        </p>
+<div class="mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">React</span>
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Firestore</span>
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Auth</span>
+</div>
+<div class="flex gap-3">
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary underline decoration-primary decoration-2 underline-offset-4" href="#">Live Demo</a>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary" href="#">Source Code</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group bg-white dark:bg-[#1f1e16] rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Productivity Task Manager" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist task list interface on a clean desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ExScdrOuL77Aw0-ChiuPeDEsZl_veohXRaziwUYhGZ819wVFxQtoS0w_PVwQqQw3CXvHFcX9hlTN1b0yCpKCUo8egbYM61tt2ZjN1mUIS84HzINyAEmcWLm9krUHRD4YAVL646NYWNW2eFxRqBHNkXefwGM7KD0joqT8DNuq1SznvQFTd7ghZ6_HcpiSUcm8U8vk9Nh5qdxZ2xANOEwwCPu60AcGjgsUjpjdkd-vlDvzVGQBzvatX6TQYAtJvNAeucFGyh4WSsE"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            TypeScript
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">TaskFlow Manager</h4>
+<p class="text-sm text-slate-600 dark:text-stone-400 mb-4 line-clamp-3">
+                            A smart task management tool built with strict typing for reliability. Includes drag-and-drop Kanban boards and progress tracking.
+                        </p>
+<div class="mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Shadcn UI</span>
+<span class="px-2 py-1 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs rounded-md">Zustand</span>
+</div>
+<div class="flex gap-3">
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary underline decoration-primary decoration-2 underline-offset-4" href="#">Live Demo</a>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary" href="#">Source Code</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Spotlight Gallery -->
+<section class="w-full bg-slate-900 text-white py-16 md:py-24">
+<div class="px-4 md:px-10 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-end justify-between mb-8 gap-4">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Project Spotlight</span>
+<h3 class="text-3xl md:text-4xl font-black">E-commerce Dashboard</h3>
+</div>
+<div class="flex gap-2">
+<button class="size-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 rounded-full bg-primary text-black flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="relative w-full aspect-video md:aspect-[21/9] bg-stone-800 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+<img alt="Dashboard Full View" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Wide angle view of data charts and analytics on a monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB63ucLAMH2bCQEUfqOZF9ecYq5BYPinhj2foXHoOQE_t17G378vRsdVQcOgBFvLrGjizudIVBe904N_qepEimUoMJeMHuOOVOYVeSMR3nmxBtuPtNVxI9wog3yDaUsrELxJbk6ygvP2xdrlyh8fSPiM2epHX7qgmGPHyh9nG_XgBYbr3nOmsKZI8lbUmvefqr1mIz6gNrI2kwgVQc4tgVeUm6jHAp9ibXGw8B5urNO1r3f1k_Uzk84lsP-e260FKh1i_hS9v_lcTs"/>
+<!-- Overlay Caption -->
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 md:p-10 flex flex-col justify-end h-1/2">
+<div class="max-w-3xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+<h4 class="text-xl md:text-2xl font-bold mb-2">Analytics Overview Screen</h4>
+<p class="text-stone-300 text-sm md:text-base">
+                                This view aggregates sales data from multiple channels. The charts are interactive, allowing the admin to drill down into specific timeframes. Built with Recharts for smooth SVG animations.
+                            </p>
+</div>
+</div>
+</div>
+<div class="flex gap-4 mt-6 overflow-x-auto pb-2 scrollbar-hide">
+<div class="w-40 h-24 rounded-lg overflow-hidden border-2 border-primary cursor-pointer shrink-0">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of analytics dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkw3sY0oUEjj7_89Eb4PSOUNF87h2Xp67inbEUhy-AqsvY5M5lGBxLruv902lOdejdZwYFjx-PA3PDTpjE5_7e_E7FxI1Swq3q6zm_3eBjDeD4UghXVT-WVNxPkGQJaE8FZ48-7hez5-4yk5OpbnndRagVqFBiW9hKuRmSYf0-PaXGg5A2S_b_gnYSPKU_smpubTvUlVeQrRKxeSR96B8Rb1myj_gaUmYRk31hnzr0L1Eq8awWzTuOJ98OH3p21mlVJ1vL0boBsQ8"/>
+</div>
+<div class="w-40 h-24 rounded-lg overflow-hidden border border-white/20 cursor-pointer opacity-60 hover:opacity-100 shrink-0">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of user management table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNEzC9K4bl0SBBgHI7UkYFWiF2jRewxRQLRqOcDxBXkTcMPlYWtKBzATClUJ29GAEbXK5ztcX3MH2a6pXEr7RF6pH621snQ6a10_Sr4iywUqiSaKcBLjONTuhAv3cyddocTMI0XsbgKIYPTbyyDvAYzxXxSEOUHCi0u18kKuSC2ilfhIjITOApE1PM_N7QrQ4WfNBpcYj9_67HuLhhP5cr62fdqQ8zQCxkH1ng0fu5js4XdNJU9ytgaHeB9iEhtMmQ523I8kyvVw8"/>
+</div>
+<div class="w-40 h-24 rounded-lg overflow-hidden border border-white/20 cursor-pointer opacity-60 hover:opacity-100 shrink-0">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of settings panel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs3H0ydnDHM5sTFXMIjMhm2usUR0qUGBJh55gfvQPFje5jTEA0OoOFP_na6CG0bZm5j95vlSouShTnFdfSh-aVhtjr5z4xL1avUCtvGS_EzqIWX6vYqAcbxhRRzvO4RjS1icq-PuhMgmIVIPhBM9M9luaPy7nx1SGc6-rZdh1S6OVdUcqJDqDFXeKYUwLDiRwH7Yf4yuB4KnD1HEUwTIVZvyXWXDjlu_Cu9fYjTtPv595hWY3WgHVx94r0ywGZjZi1PfqdfrrGPmk"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-background-light dark:bg-background-dark py-10 border-t border-stone-200 dark:border-stone-800">
+<div class="px-4 md:px-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+<span class="text-slate-900 dark:text-white font-bold text-lg">Leonardo Souza Bento</span>
+<span class="hidden md:inline text-stone-300 dark:text-stone-700">|</span>
+<span class="text-slate-500 dark:text-stone-400 text-sm">© 2025 All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-sm font-medium text-slate-600 dark:text-stone-400 hover:text-primary transition-colors" href="#">Portfolio Repository</a>
+<a class="flex items-center justify-center size-10 rounded-full bg-stone-200 dark:bg-stone-800 text-slate-700 dark:text-stone-300 hover:bg-primary hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

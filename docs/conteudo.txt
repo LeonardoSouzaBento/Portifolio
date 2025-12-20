@@ -1,0 +1,107 @@
+////////////
+Leonardo Souza Bento
+Desenvolvedor React Front End
+[FOTO]
+
+/////////////
+
+Como me encontrar
+Celular: 34 98412 5832
+Email: bentosouzaleonardo@gmail.com
+Github: 
+Projetos complexos e com read-me elegante
+Linkedin:
+Encontre publicações sobre detalhes das minhas implementações.
+
+////////
+Tecnologias que domino
+
+Desenvolvimento de interfaces com:
+React com Javascript e TypeScript (usado na maioria dos projetos)
+Styled Components
+Tailwind CSS
+Componentes Reutilizáveis Shacn ui
+
+Conhecimento em integrações com back-end usando:
+Axios
+Firebase Firestore
+Firebase Authentication 
+
+/////////
+Que tipo de pessoa sou
+
+Sou dedicado, pois tenho sabedoria e consideração pelo próximo. Busco convívio harmonioso, não luto por posições nem ando em inveja.  Aceito meu status (como Jesus ensinou), pois sei que Deus é quem determina a posição que cada um deve ocupar e a glória que cada um chegará a ter. Essa humildade me faz ser realista e aberto a críticas. Sou altamente confiável, pois o temor de Deus e seu Espírito Santo estão em mim, fornecendo-me temperança.
+
+Busco uma vida equilibrada, sem vício em drogas ou paixão por mulheres da vida. E também sei que as práticas da vida pessoal impactam negativamente a vida profissional. Exerço minhas atividades com alegria e foco. É esse o profissional que você pode esperar encontrar em mim.
+
+Se ter um profissional assim no seu time não é importante, dispense-me.
+
+/////////
+
+O que esperar dos meus projetos
+Design belo, responsividade e boa esperiencia do usuario
+
+Componentização para escalabilidade, 
+Componentes fornecidos por bibliotecas ou criados com styled componentes
+
+Padronização de estilo com variaveis
+Por meio de um globals.css
+
+Escala tipografica coerente
+com typografy.css
+
+Aplicação de mobile first 
+Design mobile refinado
+
+Boa organização de codigo
+Aquivos do projeto bem organizados
+
+
+Projetos
+
+//////////////
+Supermercado Do Bom
+link sobreposto
+
+Uma aplicação de página única (SPA) que simula a experiência completa de um supermercado online. O projeto demonstra a construção de uma
+aplicação web moderna com funcionalidades interativas avançadas.
+
+Funcionalidades importantes:  
+
+Autenticação Rápida com Login com  Google, 
+Sugestões de Pesquisa Inteligente,  
+Navegação por Categorias, 
+Preenchimento Automático de Endereço
+//////////////
+
+FontScaleGenerator
+
+No site é feito para gerar hierarquias o tamanho de forma profissional para você. Gera para  você CSS com tamanhos responsivos para que você tenha uma interface muito mais elegante com tags seguindo uma hierarquia de tamanho padronizada.
+
+Tecnologias
+
+React com typescript
+Componentes shadcUi
+Tailwind CSS
+
+//////////////
+
+Curso de UI design 
+Um blog rico que aborda os principais topicos de UI Design: tipografia, botões, espaçamentos e preenchimentos e sombras.
+
+///////////////
+Pet-ShopLandingPage
+
+React com TypeScript 
+Tailwind CSS
+
+Landing page moderna e responsiva com visual belíssimo para um pet shop apresentar seus serviços e diferenciais.
+
+///////////
+Meus Filmes favoritos
+Uma página para te informar sobre meus gostos pessoais e ajudar você a ter uma ideia de que tipo de pessoa eu sou e que perfil de personalidade tenho.
+
+Tecnologias
+HTML, CSS
+
+/////////////

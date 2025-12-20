@@ -1,0 +1,125 @@
+@import 'reset.css';
+@import 'patternBackground.css';
+@import 'typography.css';
+@import 'components/nav.css';
+@import 'components/hero.css';
+
+:root {
+  /* Tamanho */
+  --size: 0.625rem;
+  /* Fontes */
+  --font-default: 'Zen Kaku Gothic New', sans-serif;
+  /* Tamanhos de fonte */
+  --text-xs: 0.790123em;
+  --text-sm: 0.888889em;
+  --text-base: 1em;
+  --text-lg: 1.125em;
+  --text-h6: 1.125em;
+  --text-h5: 1.265625em;
+  --text-h4: 1.423828em;
+  --text-h3: 1.601807em;
+  --text-h2: 1.802032em;
+  --text-h1: 2.027287em;
+  --text-big-h1: 2.280697em;
+  --text-button: 1em;
+  --text-sm-button: 0.9em;
+  --text-lg-button: 1.1em;
+  /* Cores */
+  --white: #ffffff;
+  --black: #222;
+
+  --blue-50: #f0fbff;
+  --blue-100: #d9f4ff;
+  --blue-200: #b3e9ff;
+  --blue-300: #85dbff;
+  --blue-400: #61dafb;
+  --blue-500: #38c7f4;
+  --blue-600: #1fa6d8;
+  --blue-700: #167ea6;
+  --blue-800: #115a78;
+  --blue-900: #0d3d52;
+  --blue-950: #082634;
+
+  --green-50: #f1fdf7;
+  --green-100: #dcfce9;
+  --green-200: #b9f6d3;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --green-800: #166534;
+  --green-900: #14532d;
+  --green-950: #052e16;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-muted: #eef2f7;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --border-color: #e2e8f0;
+
+  --primary: var(--blue-400);
+  --primary-hover: var(--blue-500);
+  --primary-active: var(--blue-600);
+
+  --secondary: var(--green-500);
+  --secondary-hover: var(--green-600);
+
+  --link-color: var(--blue-600);
+  --link-hover: var(--blue-700);
+
+  --success: var(--green-500);
+  --info: var(--blue-400);
+  --warning: #facc15;
+  --danger: #ef4444;
+
+  --shadow-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0b1220;
+  --bg-secondary: #111827;
+  --bg-muted: #1f2937;
+
+  --text-primary: #e5e7eb;
+  --text-secondary: #cbd5f5;
+  --text-muted: #94a3b8;
+
+  --border-color: #1e293b;
+
+  --primary: var(--blue-400);
+  --primary-hover: var(--blue-300);
+  --primary-active: var(--blue-200);
+
+  --secondary: var(--green-400);
+  --secondary-hover: var(--green-300);
+
+  --link-color: var(--blue-300);
+  --link-hover: var(--blue-200);
+
+  --success: var(--green-400);
+  --info: var(--blue-300);
+  --warning: #fde047;
+  --danger: #f87171;
+
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: var(--font-default);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+main{
+  padding: 0 12px;
+}
+
+.text-muted{
+  color: var(--text-muted);
+}
+

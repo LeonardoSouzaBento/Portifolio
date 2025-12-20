@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portifólio</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet" />
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <!-- metatags -->
+    <meta name="description" content="Portifólio do Leonardo Souza Bento" />
+    <meta name="keywords" content="Portifólio, Leonardo Souza Bento, Desenvolvedor React" />
+    <meta name="author" content="Leonardo Souza Bento" />
+    <!-- estilos -->
+    <link rel="stylesheet" href="css/globals.css" />
+    <!-- scripts -->
+    <script type="module" src="js/index.js"></script>
+    <!--Og e Twitter -->
+    <meta property="og:title" content="Portifólio do Leonardo Souza Bento" />
+    <meta property="og:description" content="Portifólio do Leonardo Souza Bento" />
+    <meta property="og:image" content="img/foto.jpg" />
+    <meta property="og:url" content="https://leonardosouza.dev" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portifólio do Leonardo Souza Bento" />
+    <meta name="twitter:description" content="Portifólio do Leonardo Souza Bento" />
+    <meta name="twitter:image" content="img/foto.jpg" />
+  </head>
+
+  <body>
+    <div class="react-pattern" id="pattern"></div>
+    <nav id="nav">
+      <a href="#tecnologias-que-domino">Tecnologias que domino</a>
+      <a href="#que-tipo-de-pessoa-sou">Que tipo de pessoa sou</a>
+      <a href="#o-que-esperar-dos-meus-projetos">O que esperar dos meus projetos</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#o-que-ja-implementei">O que já implementei</a>
+    </nav>
+    <main>
+      <section id="hero-section">
+        <header>
+          <div id="wrapper-profile-photo">
+            <img
+              id="profile-photo"
+              src="public/profile-photo.png"
+              alt="Foto do Leonardo Souza Bento" />
+          </div>
+          <div id="wrapper-profile-text">
+            <div id="wrapper-my-name">
+              <h1>Leonardo Souza Bento</h1>
+              <p class="text-large" id="titulacao">
+                Desenvolvedor React Front End formando em
+                <strong>Engenharia de Software</strong>
+              </p>
+            </div>
+          </div>
+        </header>
+        <section id="contact">
+          <h3>Como me encontrar</h3>
+          <p class="contact-item">
+            Celular: <br />
+            34 98412 5832
+          </p>
+          <p class="contact-item">
+            Email: <br />
+            bentosouzaleonardo@gmail.com
+          </p>
+          <p class="contact-item">
+            Github: <br />
+            Projetos complexos e com read-me elegante.
+          </p>
+          <p class="contact-item">
+            Linkedin: <br />
+            Detalhes das minhas implementações e +.
+          </p>
+        </section>
+      </section>
+
+      <section id="tecnologias-que-domino">
+        <h3>Tecnologias que domino</h3>
+        <div id="front-technologies">
+          <p class="text-large">Para criar interfaces:</p>
+          <!--renderização por js-->
+        </div>
+        <div id="back-technologies">
+          <p class="text-large">Para aplicar back-end:</p>
+          <!--renderização por js-->
+        </div>
+      </section>
+
+      <section id="que-tipo-de-pessoa-sou">
+        <h3>Que tipo de pessoa sou</h3>
+        <p>
+          Sou dedicado, pois tenho sabedoria e consideração pelo próximo. Busco convívio harmonioso,
+          não luto por posições nem ando em inveja. Aceito meu status (como Jesus ensinou), pois sei
+          que Deus é quem determina a posição que cada um deve ocupar e a glória que cada um chegará
+          a ter. Essa humildade me faz ser realista e aberto a críticas. Sou altamente confiável,
+          pois o temor de Deus e seu Espírito Santo estão em mim, fornecendo-me temperança.
+        </p>
+
+        <p>
+          Busco uma vida equilibrada, sem vício em drogas ou paixão por mulheres da vida. E também
+          sei que as práticas da vida pessoal impactam negativamente a vida profissional. Exerço
+          minhas atividades com alegria e foco. É esse o profissional que você pode esperar
+          encontrar em mim.
+        </p>
+
+        <p>Se ter um profissional assim no seu time não é importante, dispense-me.</p>
+      </section>
+
+      <section id="o-que-esperar-dos-meus-projetos">
+        <h3>O que esperar dos meus projetos</h3>
+        <p class="text-large">Design belo, responsividade e boa experiência do usuário</p>
+
+        <h6>Componentização para escalabilidade</h6>
+        <p>Componentes fornecidos por bibliotecas ou criados com styled componentes</p>
+
+        <h6>Padronização de estilo com variáveis</h6>
+        <p>Por meio de um globals.css</p>
+
+        <h6>Escala tipográfica coerente</h6>
+        <p>Usando typography.css</p>
+
+        <h6>Aplicação de mobile first</h6>
+        <p>Design mobile refinado</p>
+
+        <h6>Boa organização de código</h6>
+        <p>Aquivos do projeto bem organizados</p>
+      </section>
+
+      <section id="projetos">
+        <h3>Meus Projetos</h3>
+        <div id="projects-wrapper"></div>
+      </section>
+
+      <section id="o-que-ja-implementei">
+        <h3>O que já implementei?</h3>
+        <ul id="implementations-list"></ul>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
