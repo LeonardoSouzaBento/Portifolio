@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import useResizeWatcher from '@/hooks/useResizeWatcher';
+import { useState } from 'react';
+import Hero from './components/hero';
+import Nav from './components/nav';
+import Technologies from './components/technologies';
+import PatternBackground from '@/components/background/background';
+import AboutMe from './components/aboutMe';
+import Patterns from './components/patterns';
+
+export const sectionStyles = 'max-w-6xl mx-auto mb-6';
+export const cardStyles = 'p-4 pt-2 border rounded-lg';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [wasResize, setWasResize] = useState(0);
+  useResizeWatcher(setWasResize);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Nav />
+      <main className={`px-3 md:px-6 lg:px-12 pb-8`}>
+        <PatternBackground wasResize={wasResize} />
+        <Hero wasResize={wasResize} />
+        <Technologies />
+        <AboutMe wasResize={wasResize}/>
+        <Patterns />
+
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

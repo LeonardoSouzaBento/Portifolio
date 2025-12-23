@@ -1,9 +1,0 @@
-@import 'globals.css';
-
-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 56px;
-}

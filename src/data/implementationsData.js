@@ -1,38 +1,58 @@
-export const implementationsData = [
-  {
-    name: 'Sugestões de pesquisa inteligente',
-    description:
-      'Sugestões de pesquisa inteligente',
-    icon: 'fa-brands fa-google',
-  },
-  {
-    name: 'API + Login com Google',
-    description:
-      'API + Login com Google',
-    icon: 'fa-brands fa-google',
-  },
-  {
-    name: 'Integração com Firebase Firestore',
-    description:
-      'Integração com Firebase Firestore',
-    icon: 'fa-brands fa-firestore',
-  },
-  {
-    name: 'Preenchimento automático de endereço',
-    description:
-      'Preenchimento automático de endereço',
-    icon: 'fa-brands fa-google',
-  },
-  {
-    name: 'Validação de formulário',
-    description:
-      'Validação de formulário',
-    icon: 'fa-brands fa-google',
-  },
-  {
-    name: 'Envio de mensagem para o WhatsApp',
-    description:
-      'Envio de mensagem para o WhatsApp',
-    icon: 'fa-brands fa-whatsapp',
-  },
-];
+import {
+  User,
+  Search,
+  Database,
+  MapPinned,
+  ShieldCheck,
+  LayoutDashboard,
+  GalleryThumbnails,
+  ListStart,
+} from 'lucide-react';
+
+export const implementationsData = {
+  front: [
+    {
+      icon: Search,
+      name: 'Sugestões de pesquisa inteligente',
+      description:
+        'Função javascript completa para sugerir buscar dados e sugerir termos de pesquisa',
+    },
+    {
+      icon: LayoutDashboard,
+      name: 'Atualização dinâmica de layouts e larguras',
+      description: 'Layouts e larguras corrigidos via javascript para diferentes telas',
+    },
+    {
+      icon: GalleryThumbnails,
+      name: 'Rolagem de conteúdo via mouse',
+      description: 'Muito conveniente para dispositivos desktop, mas indisponível nativamente',
+    },
+    {
+      icon: ListStart,
+      name: 'Rolagem automática programada',
+      description: 'Rolagem conveniente para mostrar conteúdo ao usuário',
+    },
+  ],
+  back: [
+    {
+      icon: User,
+      name: 'API completa + Login com Google',
+      description: 'Autenticação rápida com Google Auth',
+    },
+    {
+      icon: Database,
+      name: 'Integração com Firebase Firestore',
+      description: 'Integração com Firebase Firestore',
+    },
+    {
+      icon: MapPinned,
+      name: 'Preenchimento automático de endereço',
+      description: 'Convertendo coordenadas para API do google maps',
+    },
+    {
+      icon: ShieldCheck,
+      name: 'Validação de formulário',
+      description: 'Validação de formulário',
+    },
+  ],
+};
