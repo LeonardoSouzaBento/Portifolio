@@ -1,17 +1,17 @@
 import { cardStyles, sectionStyles } from '@/App';
-import { sectionsTitles } from '@/data/sectionsTitles';
+import { findTitle } from '@/utils/findTitle';
 import { technologiesData } from '../data/technologiesData';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 
 const css = {
   subtitle: `text-lg tracking-tight font-medium mb-1.5 text-muted-foreground`,
   p: `text-base`,
-  wrapperName: `flex gap-2.5`,
+  wrapperName: `flex gap-[1ex] items-center`,
   wrapperTechnologies: `space-y-2`,
-  logoImage: `rounded-xs overflow-hidden mt-1.5`,
+  logoImage: `rounded-xs overflow-hidden`,
 };
 
-const title = sectionsTitles.find((title) => title.keyWord === 'tecnologias');
+const title = findTitle('tecnologias');
 
 const Technologies = () => {
   return (
@@ -27,7 +27,7 @@ const Technologies = () => {
           <div className={css.wrapperTechnologies}>
             {technologiesData.front.map((tech, index) => {
               const lastItem =
-                index === technologiesData.front.length - 1 ? `size-3.5 mt-2` : `size-4.5`;
+                index === technologiesData.front.length - 1 ? `size-3.5` : `size-4.5`;
               const styledComponents = tech.name === 'Styled Components' ? `size-5.5` : ``;
               return (
                 <div key={tech.name} className={css.wrapperName}>
@@ -36,7 +36,7 @@ const Technologies = () => {
                     alt={tech.name}
                     className={`${css.logoImage} ${lastItem} ${styledComponents}`}
                   />
-                  <p className={css.p}>{tech.name}</p>
+                  <p className={`${css.p} ${styledComponents && '-ml-1'}`}>{tech.name}</p>
                 </div>
               );
             })}

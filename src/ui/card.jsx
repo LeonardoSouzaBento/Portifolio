@@ -18,7 +18,7 @@ function Card({ className, hasHeader = true, ...props }) {
 }
 
 function CardHeader({ className, ...props }) {
-  return <div data-slot="card-header" className={cn("mb-2.5", className)} {...props} />;
+  return <div data-slot="card-header" className={cn("mb-[1ex]", className)} {...props} />;
 }
 
 function CardTitle({ className, ...props }) {
@@ -49,7 +49,7 @@ function CardContent({ className, ...props }) {
   return (
     <div
       data-slot="card-content"
-      className={cn('flex flex-col gap-3', className)}
+      className={cn('flex flex-col gap-[1ex]', className)}
       {...props}
     />
   );

@@ -4,10 +4,32 @@
   .bs {
     @apply border border-black;
   }
+  /* Raios de borda */
+  .br-xs {
+   @apply rounded-xs;
+  }
+  .br-sm {
+   @apply rounded-sm;
+  }
+  .br-md {
+   @apply rounded-md;
+  }
+  .br-lg {
+   @apply rounded-lg;
+  }
+  .br-xl {
+   @apply rounded-xl;
+  }
+  .br-2xl {
+   @apply rounded-2xl;
+  }
   .br-full {
     @apply rounded-full;
   }
   .flex-center {
     @apply flex items-center justify-center;
+  }
+  .crop {
+   @apply overflow-hidden;
   }
 }

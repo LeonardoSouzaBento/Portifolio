@@ -14,10 +14,10 @@ const css = {
   p: `text-large`,
 };
 
-const Profile = ({ wasResize }) => {
+const Profile = ({ resizingCounter }) => {
   const h1Ref = useRef(null);
   const [titleWidth, setTitleWidth] = useState(0);
-  useEqualizeSize(h1Ref, setTitleWidth, wasResize, 'width');
+  useEqualizeSize(h1Ref, setTitleWidth, resizingCounter, 'width');
 
   return (
     <Card className={css.header} hasHeader={false}>
@@ -31,7 +31,7 @@ const Profile = ({ wasResize }) => {
         <h1 className={css.name} ref={h1Ref}>
           Leonardo Souza Bento
         </h1>
-        <p className={css.p} style={{ maxWidth: titleWidth }}>
+        <p className={css.p} style={{ maxWidth: titleWidth || 'none' }}>
           Desenvolvedor <strong>React</strong> Front End formando em Engenharia de Software
         </p>
       </div>

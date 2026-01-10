@@ -2,17 +2,17 @@ import { logoIconPaths } from './imageIconPaths';
 
 const technologiesData = {
   front: [
-    { name: 'TypeScript & React', icon: logoIconPaths.typescript },
+    { name: 'TypeScript e React', icon: logoIconPaths.typescript },
     { name: 'Next Js', icon: logoIconPaths.nextJs },
-    { name: 'Styled Components', icon: logoIconPaths.styledComponents },
     { name: 'Tailwind CSS', icon: logoIconPaths.tailwindCSS },
-    { name: 'Componentes Reutilizáveis Shacn UI', icon: logoIconPaths.shacnUI },
+    { name: 'Styled Components', icon: logoIconPaths.styledComponents },
+    { name: 'Componentes Shacn UI', icon: logoIconPaths.shacnUI },
   ],
   back: [
     { name: 'Axios', icon: logoIconPaths.axios },
     { name: 'Express.js', icon: logoIconPaths.express },
-    { name: 'Firebase Authentication', icon: logoIconPaths.firebaseAuth },
     { name: 'Firebase Firestore', icon: logoIconPaths.firebaseFirestore },
+    { name: 'Firebase Authentication', icon: logoIconPaths.firebaseAuth },
   ],
 };
 

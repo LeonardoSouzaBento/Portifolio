@@ -1,14 +1,16 @@
 import { sectionStyles } from '@/App';
 import Contacts from './hero/contacts';
 import Profile from './hero/profile';
-import { sectionsTitles } from '../data/sectionsTitles';
+import { findTitle } from '@/utils/findTitle';
 
-const title = sectionsTitles.find((title) => title.keyWord === 'redes sociais');
+const title = findTitle('redes sociais');
 
-const Hero = ({ wasResize }) => {
+const Hero = ({ resizingCounter }) => {
   return (
-    <section id={title.keyWord} className={`grid grid-cols-1 gap-6 min-[830px]:grid-cols-2 ${sectionStyles} mb-6`}>
-      <Profile wasResize={wasResize} />
+    <section
+      id={title.keyWord}
+      className={`grid grid-cols-1 gap-6 min-[830px]:grid-cols-2 ${sectionStyles} mb-6`}>
+      <Profile resizingCounter={resizingCounter} />
       <Contacts />
     </section>
   );

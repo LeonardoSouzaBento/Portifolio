@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useResizeWatcher(setWasResize) {
+function useResizeWatcher(setResizingCounter) {
   const windowWidthInitialRef = useRef(null);
   const resizeDowntime = useRef(null);
 
@@ -19,7 +19,7 @@ function useResizeWatcher(setWasResize) {
           windowWidthInitialRef.current !== null &&
           widthOfWindow !== windowWidthInitialRef.current
         ) {
-          setWasResize((prev) => prev + 1);
+          setResizingCounter((prev) => prev + 1);
           windowWidthInitialRef.current = widthOfWindow;
         }
       }, 500);
@@ -33,7 +33,7 @@ function useResizeWatcher(setWasResize) {
         clearTimeout(resizeDowntime.current);
       }
     };
-  }, [setWasResize]);
+  }, [setResizingCounter]);
 }
 
 export default useResizeWatcher;

@@ -5,8 +5,8 @@ import { useRef } from 'react';
 
 const css = {
   section: ``,
-  wrapper: `flex flex-col gap-2 items-start`,
-  link: `h-max flex flex-col items-start`,
+  link: `max-w-max h-max flex flex-col items-start border-b-2
+  border-transparent hover:border-blue-100 transition-all duration-200`,
   wrapperLabel: ``,
 };
 
@@ -19,7 +19,7 @@ const Contacts = () => {
         <CardTitle>Redes Sociais</CardTitle>
       </CardHeader>
 
-      <CardContent className={`${cardStyles} pt-4`}>
+      <CardContent className={`${cardStyles} pt-[1cap]`}>
         {contactLinks.map((item) => (
           <a
             ref={aRef}
@@ -28,11 +28,11 @@ const Contacts = () => {
             href={item.link}
             target="_blank"
             rel="noopener noreferrer">
-            <div className={`flex gap-2.5 items-center`}>
-              <img className="size-5 inline-flex" src={item.icon} alt={item.name} />
-              <p className={`text-sm-button font-semibold -mb-1`}>{item.name}</p>
+            <div className={`flex gap-2 items-center`}>
+              <img className="size-4.5 inline-flex" src={item.icon} alt={item.name} />
+              <p className={`text-sm-button font-semibold -mb-1 text-blue-600`}>{item.name}</p>
             </div>
-            <p className={`text-sm text-muted-foreground`}>{item.value}</p>
+            <p className={`text-sm-button text-muted-foreground p-0`}>{item.value}</p>
           </a>
         ))}
       </CardContent>

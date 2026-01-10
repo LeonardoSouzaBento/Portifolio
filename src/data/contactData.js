@@ -13,7 +13,7 @@ export const contactLinks = [
   },
   {
     name: 'GitHub',
-    value: 'Projetos complexos e com read-me elegante.',
+    value: 'Projetos complexos e read-mes elegantes.',
     link: 'https://github.com/leonardosouza',
     icon: 'logo-icons/GitHub.svg',
   },

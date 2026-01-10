@@ -2,7 +2,7 @@
 
 @theme {
   /* Tamanho */
-  --px: 0.0625rem;
+  --spacing-height-3: 0.1875rem;
   --font-default: 'Zen Kaku Gothic New', sans-serif;
   /* Tamanhos de fonte */
   --text-xs: 0.790123em;
@@ -30,6 +30,7 @@
   /* Cores */
   --color-white: #ffffff;
   --color-black: #222;
+  --color-selected: oklch(80.9% 0.105 251.813);
   --color-background-start: oklch(1 0 0);
   --color-background-end: oklab(95.901% 0.00514 0.00149);
   --color-background: oklch(1 0 0);
@@ -104,13 +105,38 @@
     @apply [&>svg]:shrink-0;
     border-color: var(--color-border);
     outline-color: var(--color-border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-sidebar-border);
+    border-radius: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* remover bordas da página */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  html,
+  body {
+    scrollbar-width: none;
   }
 
+  /* estilos básicos */
   body {
     @apply font-default font-medium bg-linear-to-br from-background-start to-background-end;
   }
-
   main {
     @apply px-3 md:px-6 lg:px-12;
+  }
+  h3, h1{
+    @apply text-[#167994];
   }
 }
