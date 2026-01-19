@@ -4,7 +4,6 @@ import {
   Implementations,
   Nav,
   Patterns,
-  Prev,
   Projects,
   Technologies,
   // PatternBackground,
@@ -19,9 +18,7 @@ const Home = ({ resizingCounter }) => {
         <Hero resizingCounter={resizingCounter} />
         <Technologies />
         <AboutMe resizingCounter={resizingCounter} />
-        <Patterns />
         <Projects resizingCounter={resizingCounter} />
-        <Prev />
         <Implementations />
       </main>
     </>

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
 import { findTitle } from '@/utils/findTitle';
 
-const title = findTitle('implementações');
+const title = findTitle('experiências');
 
 export const Implementations = () => {
   return (

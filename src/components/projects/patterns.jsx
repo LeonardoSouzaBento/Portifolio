@@ -1,8 +1,8 @@
 import { cardStyles } from '@/App';
 import { iconMd, iconSm } from '@/css/lucideIcon';
+import { patterns } from '@/data/patterns';
+import { CardContent } from '@/ui/card';
 import { findTitle } from '@/utils/findTitle';
-import { patterns } from '../data/patterns';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 
 const css = {
   wrapper: `max-w-lg m-0 max-w-max`,
@@ -17,14 +17,9 @@ const secondHalf = patterns.slice(3);
 
 export const Patterns = () => {
   return (
-    <Card id={title.keyWord} className={'home-section'}>
-      <CardHeader>
-        <CardTitle>{title.title}</CardTitle>
-        <CardDescription>{title.subtitle}</CardDescription>
-      </CardHeader>
-
-      <CardContent
-        className={`${cardStyles} pt-3 mt-[1cap] gap-0 flex flex-col md:flex-row md:gap-12`}>
+    <div id={title.keyWord} className={'mb-4 mr-6 bg-primary-50/33 p-5 pb-4 pt-0 rounded-lg'}>
+      <h6 className={`w-full font-semibold pt-cap-offset mb-ex-offset text-primary`}>{title.title}</h6>
+      <CardContent className={`gap-0 flex flex-col md:flex-row md:gap-12`}>
         <div className={css.wrapper}>
           {firstHalf.map((pattern, index) => (
             <div key={pattern.name} className={css.nameWrapper}>
@@ -48,6 +43,6 @@ export const Patterns = () => {
           ))}
         </div>
       </CardContent>
-    </Card>
+    </div>
   );
 };

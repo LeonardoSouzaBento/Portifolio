@@ -1,6 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
+  /* breakpoints */
+  --breakpoint-xxs: 337px;
+  --breakpoint-xs: 375px;
+  --breakpoint-md-sm: 425px;
+  --breakpoint-pre-sm: 575px;
+  --breakpoint-pre-md: 704px;
+  --breakpoint-next-md: 840px;
+  --breakpoint-pre-lg: 980px;
   /* Tamanho */
   --spacing-height-3: 0.1875rem;
   --font-default: 'Zen Kaku Gothic New', sans-serif;
@@ -70,26 +78,16 @@
   --color-background: oklch(1 0 0);
   --color-foreground: oklch(0.141 0.005 285.823);
   --color-card: oklch(1 0 0);
-  --color-popover: oklch(1 0 0);
-  --color-popover-foreground: oklch(0.141 0.005 285.823);
-  --color-primary: oklch(0.488 0.243 264.376);
+  --color-primary: #006d77;
   --color-primary-foreground: oklch(0.97 0.014 254.604);
   --color-secondary: oklch(0.967 0.001 286.375);
   --color-secondary-foreground: oklch(0.21 0.006 285.885);
   --color-muted: oklch(0.967 0.001 286.375);
   --color-accent: oklch(0.967 0.001 286.375);
   --color-accent-foreground: oklch(0.21 0.006 285.885);
-  --color-destructive: oklch(0.577 0.245 27.325);
   --color-input: oklch(0.92 0.004 286.32);
   --color-ring: oklch(0.708 0 0);
   --color-sidebar: oklch(0.985 0 0);
-  --color-sidebar-foreground: oklch(0.141 0.005 285.823);
-  --color-sidebar-primary: oklch(0.546 0.245 262.881);
-  --color-sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --color-sidebar-accent: oklch(0.967 0.001 286.375);
-  --color-sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --color-sidebar-border: oklch(0.92 0.004 286.32);
-  --color-sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
@@ -112,12 +110,6 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.623 0.214 259.815);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.439 0 0);
 }
 
@@ -168,9 +160,11 @@
   main {
     @apply px-3 md:px-6 lg:px-12;
   }
-
   h3,
   h1 {
     @apply text-primary-700;
+  }
+  a {
+    @apply leading-none;
   }
 }

@@ -4,6 +4,7 @@ interface Project {
   description: string;
   image: string;
   link: string;
+  githubLink?: string;
   functions: Record<string, string>;
   mainLabel?: string;
   labels: string[];
@@ -13,24 +14,26 @@ interface Project {
 export const projectsData: Project[] = [
   {
     id: 'supermercado',
-    name: 'Supermercado Do Bom',
+    name: 'supermercado do bom',
     description:
-      'Simula o processo completo de compra de um app de supermercado. Tem uma API integrada para login com google e para captura de endereço por coordenadas.',
+      'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com google e para captura de endereço por coordenadas via Google Maps...',
     image: './projects/',
     link: 'https://supermercadodobom.netlify.app/',
+    githubLink: 'https://github.com/LeonardoSouzaBento/SupermercadoDoBom',
     functions: {
       '': '',
     },
-    mainLabel: 'Firebase',
-    labels: ['Node.js', 'Express', 'Styled Components'],
+    mainLabel: 'Styled Components',
+    labels: ['Firebase', 'Node.js', 'Express'],
     resources: [''],
   },
   {
     id: 'catalogo',
-    name: 'Catálogo de Roupas',
+    name: 'catálogo de roupas',
     description: '',
     image: './projects/',
-    link: '',
+    link: 'https://catalogo-de-roupas.vercel.app/',
+    githubLink: 'https://github.com/LeonardoSouzaBento/CatalogoDeRoupas',
     functions: {
       '': '',
     },
@@ -39,15 +42,16 @@ export const projectsData: Project[] = [
   },
   {
     id: 'css',
-    name: 'Gerador de CSS',
+    name: 'gerador de CSS',
     description:
-      'Um site para criar o CSS da hierarquia tipográfica do seu projeto, gerar estilos para botões e definir as cores neutras da sua paleta, como foreground e muted-foreground. Permite obter estilos gerados dinamicamente, bem como estilos fixos recomendados para qualquer projeto. Inspira a normalização e a estruturação de estilos.',
+      'Um site para gerar dinamicamente estilos em CSS para hierarquia tipográfica, para botões e para montar paletas de cores. Inspira a normalização e a estruturação de estilos...',
     image: './projects/gerador-de-css.png',
     link: 'https://geradordecss.netlify.app/',
+    githubLink: 'https://github.com/LeonardoSouzaBento/GeradorDeCSS',
     functions: {
       '': '',
     },
-    mainLabel: 'Tailwind CSS',
+    mainLabel: 'tailwind CSS',
     labels: ['Radix UI'],
   },
   {
@@ -55,20 +59,22 @@ export const projectsData: Project[] = [
     name: 'Portfólio',
     description: '',
     image: './projects/',
-    link: '',
+    link: 'https://leonardobentodev.netlify.app/',
+    githubLink: 'https://github.com/LeonardoSouzaBento/Portifolio',
     functions: {
       '': '',
     },
-    mainLabel: 'Tailwind CSS',
+    mainLabel: 'tailwind CSS',
     labels: ['JavaScript', 'Shadcn UI'],
   },
   {
     id: 'filmes',
-    name: 'Meus filmes favoritos',
+    name: 'meus filmes favoritos',
     description:
       'Confira uma lista de filmes calmos para pessoas empáticas e reflexivas, que valorizam a história, a justiça e a fé em ideais.',
     image: './projects/filmes-favoritos.png',
     link: 'https://filmesfavoritos.netlify.app/',
+    githubLink: 'https://github.com/LeonardoSouzaBento/MeusFilmesFavoritos',
     functions: {
       '': '',
     },
@@ -82,6 +88,7 @@ export const projectsData: Project[] = [
       'A landing page de visual belíssimo do grupo Leo Pet Shop. Feita para gerar conversões para o WhatsApp da empresa.',
     image: './projects/leopetshop.png',
     link: 'https://leopetshop.netlify.app',
+    githubLink: 'https://github.com/LeonardoSouzaBento/Pet-ShopLandingPage',
     functions: {
       '': '',
     },

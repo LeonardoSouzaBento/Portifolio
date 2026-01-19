@@ -4,6 +4,7 @@ import { Button, Card, CardContent, CardHeader, CardTitle } from '@/ui';
 import { CustomLink } from '@/ui/custom-link';
 import { findTitle } from '@/utils/findTitle';
 import { useEffect, useRef, useState } from 'react';
+import { Patterns } from './projects/patterns';
 
 const css = {
   container: `pt-1 pb-[1cap] pr-6 w-full flex gap-4 overflow-x-scroll [*]:touch-scroll-x [*]:select-none`,
@@ -50,11 +51,12 @@ export const Projects = ({ resizingCounter }) => {
       <CardHeader>
         <CardTitle>{title.title}</CardTitle>
       </CardHeader>
+      <Patterns />
       <CardContent className={`overflow-hidden pr-0`} ref={containerRef}>
         <div className={css.container} ref={scrollabDivRef}>
           {projectsData.map((project, index) => {
             const imageContraste = project.id === 'pet-shop' ? 'hue-rotate-9' : '';
-            const textWrapperHeight = index === 0 || index === 1 ? 'h-46' : 'h-55';
+            const textTransform = index === 5 ? 'normal-case' : 'capitalize';
 
             return (
               <div key={project.id} className={css.wrapper}>
@@ -67,7 +69,7 @@ export const Projects = ({ resizingCounter }) => {
                 </div>
                 <div className={'overflow-hidden'}>
                   <div className="px-4">
-                    <h6 className="capitalize mt-ex-offset pb-ex-offset">{project.name}</h6>
+                    <h6 className={`${textTransform} mt-ex-offset pb-ex-offset`}>{project.name}</h6>
                     <div className={css.labelsWrapper}>
                       {project.labels.map((label) => (
                         <p key={label} className={css.label}>
@@ -76,13 +78,19 @@ export const Projects = ({ resizingCounter }) => {
                       ))}
                     </div>
                   </div>
-                  <div className={`${textWrapperHeight} pl-4 pr-2 overflow-y-scroll`}>
+                  <div className={`h-max px-4 overflow-y-hidden`}>
                     <p className="text-sm pt-ex-offset pb-3">{project.description}</p>
                     {project.id !== 'portfolio' && (
-                      <div className="w-full flex justify-center sticky bottom-0 left-0">
-                        <Button className="rounded-full">
+                      <div
+                        className={`w-full pb-4 flex justify-center gap-4 
+                        absolute bottom-0 left-0`}>
+                        <Button variant="default">
                           <CustomLink href={project.link || '#'} />
                           Ver projeto
+                        </Button>
+                        <Button variant="outline">
+                          <CustomLink href={project.githubLink || '#'} target="_github" />
+                          Ver código
                         </Button>
                       </div>
                     )}

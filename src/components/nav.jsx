@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { sectionsTitles } from '../data/sectionsTitles';
+import { NavLink } from 'react-router-dom';
 
 const css = {
   nav: `mb-3 md:mb-4 shadow-sm/12 sticky top-0 z-6 backdrop-blur-sm border-b 
   border-border/33 bg-linear-to-r from-background/50 to-background`,
-  wrapper: `hidden md:flex px-3 md:px-6 lg:px-12 xl:px-0 items-center gap-5 h-16
+  wrapper: `hidden lg:flex px-3 md:px-6 lg:px-12 xl:px-0 items-center gap-5 h-16
   max-w-6xl mx-auto pb-1`,
   wrapperLink: `h-max flex flex-col items-center`,
-  link: `px-[0.9em] text-sm-button rounded-full`,
-  border: `h-height-3 w-[calc(100%-1.45em)] rounded-full transition-all duration-300`,
+  navLink: `mt-2 px-[0.9em] text-sm-button rounded-full`,
+  border: `h-height-3 mt-1 w-[calc(100%-1.45em)] rounded-full transition-all duration-300`,
   activeBorder: `bg-primary-300`,
   inactiveBorder: `bg-transparent`,
 };
@@ -51,9 +52,9 @@ export const Nav = () => {
           const sectionName = keyWord.charAt(0).toUpperCase() + keyWord.slice(1);
           return (
             <div key={keyWord} className={css.wrapperLink}>
-              <a href={`#${keyWord}`} className={`${css.link}`}>
+              <NavLink to={`#${keyWord}`} className={`${css.navLink}`}>
                 {sectionName}
-              </a>
+              </NavLink>
               <div
                 className={`${css.border} ${
                   activeId === keyWord ? css.activeBorder : css.inactiveBorder
