@@ -1,19 +1,16 @@
-import { sectionStyles } from '@/App';
-import Contacts from './hero/contacts';
-import Profile from './hero/profile';
+import SocialMedia from './hero/social-media';
+import Badge from './hero/badge';
 import { findTitle } from '@/utils/findTitle';
 
 const title = findTitle('redes sociais');
 
-const Hero = ({ resizingCounter }) => {
+export const Hero = ({ resizingCounter }) => {
   return (
     <section
       id={title.keyWord}
-      className={`grid grid-cols-1 gap-6 min-[830px]:grid-cols-2 ${sectionStyles} mb-6`}>
-      <Profile resizingCounter={resizingCounter} />
-      <Contacts />
+      className={`grid grid-cols-1 gap-6 min-[830px]:grid-cols-2 mb-6 home-section`}>
+      <Badge resizingCounter={resizingCounter} />
+      <SocialMedia />
     </section>
   );
 };
-
-export default Hero;

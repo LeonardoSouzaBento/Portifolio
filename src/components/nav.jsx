@@ -7,13 +7,13 @@ const css = {
   wrapper: `hidden md:flex px-3 md:px-6 lg:px-12 xl:px-0 items-center gap-5 h-16
   max-w-6xl mx-auto pb-1`,
   wrapperLink: `h-max flex flex-col items-center`,
-  link: `text-sm-button `,
-  border: `h-height-3 w-full rounded-full transition-all duration-300`,
-  activeBorder: `bg-selected`,
+  link: `px-[0.9em] text-sm-button rounded-full`,
+  border: `h-height-3 w-[calc(100%-1.45em)] rounded-full transition-all duration-300`,
+  activeBorder: `bg-primary-300`,
   inactiveBorder: `bg-transparent`,
 };
 
-const Nav = () => {
+export const Nav = () => {
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
@@ -66,5 +66,3 @@ const Nav = () => {
     </nav>
   );
 };
-
-export default Nav;

@@ -4,13 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
 import { useRef } from 'react';
 
 const css = {
-  section: ``,
   link: `max-w-max h-max flex flex-col items-start border-b-2
   border-transparent hover:border-blue-100 transition-all duration-200`,
-  wrapperLabel: ``,
 };
 
-const Contacts = () => {
+const SocialMedia = () => {
   const aRef = useRef(null);
 
   return (
@@ -30,7 +28,7 @@ const Contacts = () => {
             rel="noopener noreferrer">
             <div className={`flex gap-2 items-center`}>
               <img className="size-4.5 inline-flex" src={item.icon} alt={item.name} />
-              <p className={`text-sm-button font-semibold -mb-1 text-blue-600`}>{item.name}</p>
+              <p className={`text-sm-button font-semibold -mb-1 text-[#0038C7]`}>{item.name}</p>
             </div>
             <p className={`text-sm-button text-muted-foreground p-0`}>{item.value}</p>
           </a>
@@ -40,4 +38,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default SocialMedia;

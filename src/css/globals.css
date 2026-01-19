@@ -15,10 +15,13 @@
   --text-h3: 1.601807em;
   --text-h2: 1.802032em;
   --text-h1: 2.027287em;
-  --text-big-h1: 2.280697em;
-  --text-button: 1em;
-  --text-sm-button: 0.9em;
-  --text-lg-button: 1.1em;
+  --text-h1-hero: 2.280697em;
+  --text-button: 0.943em;
+  --text-sm-button: 0.888em;
+  --text-lg-button: 1em;
+  /* Espaçamentos textuais */
+  --spacing-cap-offset: calc(1cap - ((1em - 1cap) / 2));
+  --spacing-ex-offset: calc(1ex - ((1em - 1cap) / 2));
   /* Sombras */
   --shadow-xs: 0 1px 2px 0 rgba(97, 218, 251, 0.15);
   --shadow-sm: 0 2px 4px 0 rgba(97, 218, 251, 0.2);
@@ -28,6 +31,37 @@
   --shadow-2xl: 0 30px 60px -15px rgba(97, 218, 251, 0.4);
   --shadow-profile: 0 0 40px -8px rgba(97, 218, 251, 0.5), 0 0 100px -20px rgba(97, 218, 251, 0.2);
   /* Cores */
+  --color-primary-50: #eff4f5;
+  --color-primary-100: #dfeaeb;
+  --color-primary-200: #c0d5d7;
+  --color-primary-300: #a1c0c4;
+  --color-primary-400: #82abb1;
+  --color-primary-500: #63979e;
+  --color-primary-600: #41848c;
+  --color-primary-700: #006d77 /*cor principal*/;
+  --color-primary-800: #00515b;
+  --color-primary-900: #00323c;
+  --color-primary-950: #00242d;
+  --color-primary-1000: #00181f;
+  /* secondary */
+  --color-secondary-50: #dff6fe;
+  --color-secondary-100: #bdedfd;
+  --color-secondary-200: #61dafb /*secondary ou #44C1CD*/;
+  --color-secondary-300: #3fbfe0;
+  --color-secondary-400: #00a4c4;
+  --color-secondary-500: #008aa9;
+  --color-secondary-600: #00708e;
+  --color-secondary-700: #005875;
+  --color-secondary-800: #00405c;
+  --color-secondary-900: #002a44;
+  --color-secondary-950: #002139;
+  --color-secondary-1000: #00182e;
+  /* cores neutras */
+  --color-card-foreground: hsl(194 18% 18%);
+  --color-muted-foreground: hsl(187 11% 38%);
+  --color-border: oklab(88.75800000000001% -0.00519 -0.00169);
+  --color-input-border: hsl(188 10% 69%);
+  --color-input-bg: hsl(190 5% 97%);
   --color-white: #ffffff;
   --color-black: #222;
   --color-selected: oklch(80.9% 0.105 251.813);
@@ -36,7 +70,6 @@
   --color-background: oklch(1 0 0);
   --color-foreground: oklch(0.141 0.005 285.823);
   --color-card: oklch(1 0 0);
-  --color-card-foreground: oklch(0.141 0.005 285.823);
   --color-popover: oklch(1 0 0);
   --color-popover-foreground: oklch(0.141 0.005 285.823);
   --color-primary: oklch(0.488 0.243 264.376);
@@ -44,18 +77,11 @@
   --color-secondary: oklch(0.967 0.001 286.375);
   --color-secondary-foreground: oklch(0.21 0.006 285.885);
   --color-muted: oklch(0.967 0.001 286.375);
-  --color-muted-foreground: oklch(0.552 0.016 285.938);
   --color-accent: oklch(0.967 0.001 286.375);
   --color-accent-foreground: oklch(0.21 0.006 285.885);
   --color-destructive: oklch(0.577 0.245 27.325);
-  --color-border: oklch(0.92 0.004 286.32);
   --color-input: oklch(0.92 0.004 286.32);
   --color-ring: oklch(0.708 0 0);
-  --color-chart-1: oklch(0.809 0.105 251.813);
-  --color-chart-2: oklch(0.623 0.214 259.815);
-  --color-chart-3: oklch(0.546 0.245 262.881);
-  --color-chart-4: oklch(0.488 0.243 264.376);
-  --color-chart-5: oklch(0.424 0.199 265.638);
   --color-sidebar: oklch(0.985 0 0);
   --color-sidebar-foreground: oklch(0.141 0.005 285.823);
   --color-sidebar-primary: oklch(0.546 0.245 262.881);
@@ -85,11 +111,6 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.623 0.214 259.815);
@@ -107,6 +128,7 @@
     outline-color: var(--color-border);
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
+    font-family: var(--font-default);
   }
   *::-webkit-scrollbar {
     width: 4px;
@@ -114,7 +136,6 @@
   }
   *::-webkit-scrollbar-thumb {
     background: var(--color-sidebar-border);
-    border-radius: 10px;
   }
   *::-webkit-scrollbar-track {
     background: transparent;
@@ -128,15 +149,28 @@
   body {
     scrollbar-width: none;
   }
-
+  /* barra dos projetos */
+  #project-image-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-primary-100);
+  }
+  #project-image-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  #project-image-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-100) transparent;
+    overflow-y: overlay;
+  }
   /* estilos básicos */
   body {
-    @apply font-default font-medium bg-linear-to-br from-background-start to-background-end;
+    @apply font-medium bg-linear-to-br from-background-start to-background-end;
   }
   main {
     @apply px-3 md:px-6 lg:px-12;
   }
-  h3, h1{
-    @apply text-[#167994];
+
+  h3,
+  h1 {
+    @apply text-primary-700;
   }
 }

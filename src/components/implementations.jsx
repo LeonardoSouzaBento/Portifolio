@@ -1,20 +1,15 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card'
-import { sectionStyles } from '@/App';
+import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
 import { findTitle } from '@/utils/findTitle';
 
 const title = findTitle('implementações');
 
-const Implementations = () => {
+export const Implementations = () => {
   return (
-    <Card id={title.keyWord} className={`${sectionStyles}`}>
+    <Card id={title.keyWord} className={`home-section`}>
       <CardHeader>
         <CardTitle>{title.title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        
-      </CardContent>
+      <CardContent></CardContent>
     </Card>
-  )
-}
-
-export default Implementations;
+  );
+};

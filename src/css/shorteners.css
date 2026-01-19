@@ -6,22 +6,22 @@
   }
   /* Raios de borda */
   .br-xs {
-   @apply rounded-xs;
+    @apply rounded-xs;
   }
   .br-sm {
-   @apply rounded-sm;
+    @apply rounded-sm;
   }
   .br-md {
-   @apply rounded-md;
+    @apply rounded-md;
   }
   .br-lg {
-   @apply rounded-lg;
+    @apply rounded-lg;
   }
   .br-xl {
-   @apply rounded-xl;
+    @apply rounded-xl;
   }
   .br-2xl {
-   @apply rounded-2xl;
+    @apply rounded-2xl;
   }
   .br-full {
     @apply rounded-full;
@@ -30,6 +30,14 @@
     @apply flex items-center justify-center;
   }
   .crop {
-   @apply overflow-hidden;
+    @apply overflow-hidden;
   }
+  .home-section {
+    @apply max-w-6xl mx-auto mb-6;
+  }
+  .card-wrapper {
+    @apply p-4 py-[1cap] border rounded-lg;
+  }
+
+  /* estilos de componentes */
 }

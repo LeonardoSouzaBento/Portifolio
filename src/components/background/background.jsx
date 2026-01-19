@@ -43,7 +43,7 @@ const generateIcons = (setIcons, screenWidth, screenHeight) => {
   setIcons(newIcons);
 };
 
-export default function PatternBackground({ resizingCounter }) {
+export function PatternBackground({ resizingCounter }) {
   const [icons, setIcons] = useState([]);
 
   useEffect(() => {

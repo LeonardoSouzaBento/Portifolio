@@ -76,18 +76,7 @@ Preenchimento Automático de Endereço
 
 FontScaleGenerator
 
-No site é feito para gerar hierarquias o tamanho de forma profissional para você. Gera para  você CSS com tamanhos responsivos para que você tenha uma interface muito mais elegante com tags seguindo uma hierarquia de tamanho padronizada.
-
-Tecnologias
-
-React com typescript
-Componentes shadcUi
-Tailwind CSS
-
-//////////////
-
-Curso de UI design 
-Um blog rico que aborda os principais topicos de UI Design: tipografia, botões, espaçamentos e preenchimentos e sombras.
+Um site para gerar o css de hierarquia tipografia do seu projeto; gerar estilos para botões e gerar as cores neutras da sua paleta, como foreground e muted foreground. Um site que permite pegar estilos gerado dinamicamente e estilos fixos recomendados para qualquer projeto. Um site para inpirar padronizaçao de projeto de organização de estilos.
 
 ///////////////
 Pet-ShopLandingPage

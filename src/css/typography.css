@@ -2,9 +2,10 @@
 @import './globals.css';
 
 @layer components {
+  /* 18.6px - 20.2px */
   body {
-    @apply text-[1.15625rem] sm:text-[1.209375rem] md:text-[1.22rem] lg:text-[1.24125rem] 
-    xl:text-[1.2625rem] 2xl:text-[1.28375rem];
+    @apply text-[1.1625rem] sm:text-[1.2125rem] md:text-[1.2225rem] 
+    lg:text-[1.2425rem] xl:text-[1.2625rem] 2xl:text-[1.2825rem];
   }
 
   .smaller-text {
@@ -52,8 +53,8 @@
     @apply text-h1;
   }
 
-  .big-h1 {
-    @apply text-big-h1;
+  .h1-hero {
+    @apply text-h1-hero;
   }
 
   button {
@@ -67,78 +68,21 @@
   .large-button {
     @apply text-lg-button;
   }
+}
 
-  /* Configurações de largura máxima para parágrafos */
+@layer components {
+  /* LARGURA MÁXIMA DO CORPO */
   p {
-    @apply max-w-[65ch] sm:max-w-[73ch] md:max-w-[75ch] lg:max-w-[78ch] xl:max-w-[82ch] 2xl:max-w-[85ch];
+    @apply max-w-[65ch] sm:max-w-[73ch] 
+    md:max-w-[75ch] lg:max-w-[78ch] xl:max-w-[82ch] 
+    2xl:max-w-[85ch];
   }
 
-  /* ============ PESOS DE FONTE ============ */
-  input::placeholder {
-    @apply font-light;
-  }
-
-  p,
-  li,
-  input,
-  select,
-  option, a {
-    @apply font-medium;
-  }
-
-  h6,
-  h5,
-  h4 {
-    @apply font-semibold;
-  }
-
-  h3,
-  h2,
-  button {
-    @apply font-bold;
-  }
-
-  h1 {
-    @apply font-black;
-  }
-
+  /* PESOS */
+  input::placeholder,
   .helper-text,
   .description-text {
     @apply font-light;
-  }
-
-  .small-button,
-  .big-link,
-  .small-link {
-    @apply font-semibold;
-  }
-
-  .h1-hero {
-    @apply leading-[1.1] pb-[0.15em] tracking-[-0.015em];
-  }
-
-  h1 {
-    @apply leading-[1.22] pb-[0.14em] tracking-[-0.020em];
-  }
-
-  h2 {
-    @apply leading-[1.24] pb-[0.13em] tracking-[-0.0225em];
-  }
-
-  h3 {
-    @apply leading-[1.28] pb-[0.125em] tracking-tight;
-  }
-
-  h4 {
-    @apply leading-[1.32] pb-[0.12em];
-  }
-
-  h5 {
-    @apply leading-[1.38] pb-[0.115em];
-  }
-
-  h6 {
-    @apply leading-[1.44] pb-[0.11em];
   }
 
   p,
@@ -146,40 +90,85 @@
   input,
   select,
   option {
-    @apply leading-[1.52] pb-[0.125em];
+    @apply font-medium;
+  }
+
+  h6,
+  h5,
+  h4,
+  strong {
+    @apply font-semibold;
+  }
+
+  a,
+  button,
+  label,
+  .small-button,
+  .big-link,
+  .small-link {
+    @apply font-medium;
+  }
+
+  h3,
+  h2 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply font-extrabold;
+  }
+}
+
+@layer components {
+  /* LINE HEIGHTS */
+  .h1-hero {
+    @apply leading-[1.1];
+  }
+  h1 {
+    @apply leading-[1.22];
+  }
+  h2 {
+    @apply leading-[1.24];
+  }
+  h3 {
+    @apply leading-[1.28];
+  }
+  h4 {
+    @apply leading-[1.32];
+  }
+  h5 {
+    @apply leading-[1.38];
+  }
+  h6 {
+    @apply leading-[1.44];
+  }
+
+  p,
+  li,
+  input,
+  select,
+  option {
+    @apply leading-[1.52];
   }
 
   label {
-    @apply leading-[1.35] pb-[0.11em];
+    @apply leading-[1.35];
   }
 
-  /* Corpo de texto */
-  .large-text {
-    @apply leading-[1.68] pb-[0.13em];
-  }
-
-  .normal-text {
-    @apply leading-normal pb-[0.125em];
-  }
-
-  .small-text {
-    @apply leading-[1.6] pb-[0.12em];
-  }
-
-  .smaller-text {
-    @apply leading-normal pb-[0.11em];
-  }
-
-  /* Botões */
   button {
-    @apply leading-[1.15];
+    @apply leading-none;
   }
 
-  .large-button {
-    @apply leading-[1.2];
+  .large-text {
+    @apply leading-[1.68];
   }
-
-  .small-button {
-    @apply leading-[1.1];
+  .normal-text {
+    @apply leading-normal;
+  }
+  .small-text {
+    @apply leading-[1.6];
+  }
+  .smaller-text {
+    @apply leading-normal;
   }
 }
