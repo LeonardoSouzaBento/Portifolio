@@ -1,17 +1,16 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Tamanho */
+  --font-default: 'Zen Kaku Gothic New', sans-serif;
   /* breakpoints */
-  --breakpoint-xxs: 337px;
+  --breakpoint-xxs: 320px;
   --breakpoint-xs: 375px;
   --breakpoint-md-sm: 425px;
   --breakpoint-pre-sm: 575px;
   --breakpoint-pre-md: 704px;
   --breakpoint-next-md: 840px;
   --breakpoint-pre-lg: 980px;
-  /* Tamanho */
-  --spacing-height-3: 0.1875rem;
-  --font-default: 'Zen Kaku Gothic New', sans-serif;
   /* Tamanhos de fonte */
   --text-xs: 0.790123em;
   --text-sm: 0.888889em;
@@ -24,8 +23,8 @@
   --text-h2: 1.802032em;
   --text-h1: 2.027287em;
   --text-h1-hero: 2.280697em;
-  --text-button: 0.943em;
-  --text-sm-button: 0.888em;
+  --text-button: 0.89em;
+  --text-sm-button: 0.863em;
   --text-lg-button: 1em;
   /* Espaçamentos textuais */
   --spacing-cap-offset: calc(1cap - ((1em - 1cap) / 2));
@@ -51,19 +50,20 @@
   --color-primary-900: #00323c;
   --color-primary-950: #00242d;
   --color-primary-1000: #00181f;
-  /* secondary */
-  --color-secondary-50: #dff6fe;
-  --color-secondary-100: #bdedfd;
-  --color-secondary-200: #61dafb /*secondary ou #44C1CD*/;
-  --color-secondary-300: #3fbfe0;
-  --color-secondary-400: #00a4c4;
-  --color-secondary-500: #008aa9;
-  --color-secondary-600: #00708e;
-  --color-secondary-700: #005875;
-  --color-secondary-800: #00405c;
-  --color-secondary-900: #002a44;
-  --color-secondary-950: #002139;
-  --color-secondary-1000: #00182e;
+  --color-icon-fill: hsla(185, 23%, 90%, 0.30);
+  /* secondary #61b3fa */
+  --color-secondary-50: #eff5ff;
+  --color-secondary-100: #deecfe;
+  --color-secondary-200: #bbd9fd;
+  --color-secondary-300: #95c7fc;
+  --color-secondary-400: #61b3fa /*Sua cor*/;
+  --color-secondary-500: #3d97dc;
+  --color-secondary-600: #007abc;
+  --color-secondary-700: #005e9d;
+  --color-secondary-800: #00437e;
+  --color-secondary-900: #002a61;
+  --color-secondary-950: #001f53;
+  --color-secondary-1000: #001345;
   /* cores neutras */
   --color-card-foreground: hsl(194 18% 18%);
   --color-muted-foreground: hsl(187 11% 38%);
@@ -73,9 +73,9 @@
   --color-white: #ffffff;
   --color-black: #222;
   --color-selected: oklch(80.9% 0.105 251.813);
-  --color-background-start: oklch(1 0 0);
-  --color-background-end: oklab(95.901% 0.00514 0.00149);
-  --color-background: oklch(1 0 0);
+  --color-light-bg: hsl(0, 0%, 100%);
+  --color-medium-bg: hsl(0, 0%, 97%);
+  --color-dark-bg: hsl(0, 20%, 95%);
   --color-foreground: oklch(0.141 0.005 285.823);
   --color-card: oklch(1 0 0);
   --color-primary: #006d77;
@@ -90,72 +90,54 @@
   --color-sidebar: oklch(0.985 0 0);
 }
 
-.dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.488 0.243 264.376);
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-ring: oklch(0.439 0 0);
-}
-
 @layer components {
   * {
     @apply [&>svg]:shrink-0;
+    cursor: default;
+    box-sizing: border-box;
     border-color: var(--color-border);
     outline-color: var(--color-border);
+    font-family: var(--font-default);
+    /* scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
-    font-family: var(--font-default);
   }
   *::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 0.25rem;
+    height: 0.25rem;
   }
   *::-webkit-scrollbar-thumb {
-    background: var(--color-sidebar-border);
+    background: var(--color-border);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-200) !important;
   }
   *::-webkit-scrollbar-track {
     background: transparent;
   }
-  /* remover bordas da página */
+
+  /* remover scrollbar da página */
   html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
+  body::-webkit-scrollbar,
+  .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
   html,
-  body {
+  body,
+  .scrollbar-hidden {
     scrollbar-width: none;
-  }
-  /* barra dos projetos */
-  #project-image-wrapper::-webkit-scrollbar-thumb {
-    background: var(--color-primary-100);
-  }
-  #project-image-wrapper::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  #project-image-wrapper {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary-100) transparent;
-    overflow-y: overlay;
   }
   /* estilos básicos */
   body {
-    @apply font-medium bg-linear-to-br from-background-start to-background-end;
+    @apply font-medium bg-linear-to-br from-light-bg to-dark-bg;
+  }
+  img {
+    background-color: var(--color-light-bg);
+    user-select: none;
+    position: relative;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
   }
   main {
     @apply px-3 md:px-6 lg:px-12;

@@ -57,7 +57,8 @@
     @apply text-h1-hero;
   }
 
-  button {
+  button,
+  .normal-button {
     @apply text-button;
   }
 
@@ -71,6 +72,20 @@
 }
 
 @layer components {
+  /* LETTERING-SPACING */
+  h1 {
+    @apply tracking-[-0.02em]; /* ou -0.01em */
+  }
+  h2 {
+    @apply tracking-[-0.015em]; /* ou 0*/
+  }
+  button,
+  .normal-button {
+    @apply tracking-[0.05em]; /* ou 0.1em*/
+  }
+  a {
+    @apply tracking-[0.02em]; /* ou 0.02em*/
+  }
   /* LARGURA MÁXIMA DO CORPO */
   p {
     @apply max-w-[65ch] sm:max-w-[73ch] 
@@ -78,11 +93,11 @@
     2xl:max-w-[85ch];
   }
 
-  /* PESOS */
+  /* PESOS 300, 400, 500, 700, 900 */
   input::placeholder,
   .helper-text,
   .description-text {
-    @apply font-light;
+    @apply font-normal;
   }
 
   p,
@@ -97,21 +112,21 @@
   h5,
   h4,
   strong {
-    @apply font-semibold;
+    @apply font-bold;
   }
 
   a,
-  button,
+  .normal-button,
   label,
   .small-button,
   .big-link,
   .small-link {
-    @apply font-medium;
+    @apply font-bold;
   }
 
   h3,
   h2 {
-    @apply font-bold;
+    @apply font-extrabold;
   }
 
   h1 {
@@ -155,6 +170,7 @@
     @apply leading-[1.35];
   }
 
+  .normal-button,
   button {
     @apply leading-none;
   }

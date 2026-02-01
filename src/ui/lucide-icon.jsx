@@ -1,5 +1,3 @@
-import { LucideIcon } from 'lucide-react';
-
 const iconSizes = {
   xs: '0.889em',
   sm: '0.943em',
@@ -20,12 +18,13 @@ const weights = {
   light: 2.4,
 };
 
-export const LucideIcon = ({ size, Icon, className, strokeValue }) => {
+export const Icon = ({ size, Icon, className, strokeValue, fill }) => {
   return (
     <Icon
       size={iconSizes[size] || size || '1em'}
       strokeWidth={weights[strokeValue] || strokeValue || 2.6}
       className={className || ''}
+      fill={fill || 'none'}
     />
   );
 };

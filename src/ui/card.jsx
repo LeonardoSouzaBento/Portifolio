@@ -8,7 +8,7 @@ function Card({ className, hasHeader = true, ...props }) {
       data-slot="card"
       className={cn(
         `bg-card text-card-foreground border border-border/33 rounded-xl 
-        py-6 shadow-md max-w-6xl hover:shadow-lg transition-all duration-200`,
+        py-6 shadow-md max-w-6xl hover:shadow-lg transition-all duration-200 flex flex-col`,
         hasHeader ? 'p-6 pt-3.5' : 'p-6',
         className
       )}
@@ -18,11 +18,11 @@ function Card({ className, hasHeader = true, ...props }) {
 }
 
 function CardHeader({ className, ...props }) {
-  return <div data-slot="card-header" className={cn("mb-[1ex]", className)} {...props} />;
+  return <div data-slot="card-header" className={cn("mb-2", className)} {...props} />;
 }
 
 function CardTitle({ className, ...props }) {
-  return <h3 data-slot="card-title" className={cn("pb-0", className)} {...props} />;
+  return <div data-slot="card-title" className={cn(className)} {...props} />;
 }
 
 function CardDescription({ className, ...props }) {

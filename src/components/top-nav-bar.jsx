@@ -4,26 +4,26 @@ import { NavLink } from 'react-router-dom';
 
 const css = {
   nav: `mb-3 md:mb-4 shadow-sm/12 sticky top-0 z-6 backdrop-blur-sm border-b 
-  border-border/33 bg-linear-to-r from-background/50 to-background`,
-  wrapper: `hidden lg:flex px-3 md:px-6 lg:px-12 xl:px-0 items-center gap-5 h-16
+  border-border/33 bg-linear-to-r from-light-bg/50 to-light-bg`,
+  wrapper: `hidden lg:flex px-3 md:px-6 lg:px-12 xl:px-0 items-center gap-4 h-16
   max-w-6xl mx-auto pb-1`,
   wrapperLink: `h-max flex flex-col items-center`,
-  navLink: `mt-2 px-[0.9em] text-sm-button rounded-full`,
-  border: `h-height-3 mt-1 w-[calc(100%-1.45em)] rounded-full transition-all duration-300`,
-  activeBorder: `bg-primary-300`,
+  navLink: `mt-1.5 px-[0.45em] text-sm-button rounded-full text-primary-800`,
+  border: `h-0.75 mt-1 w-[calc(100%-0.9em)] rounded-full transition-all duration-300`,
+  activeBorder: `bg-secondary-300`,
   inactiveBorder: `bg-transparent`,
 };
 
-export const Nav = () => {
+export const TopNavBar = () => {
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
     const observerOptions = {
       root: null,
       // rootMargin: 'cima direita baixo esquerda'
-      // "linha de detecção" suba 10% a partir da base
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 0.85, // A seção precisa de 85% de visibilidade para ativar
+      // Detecta quando a seção está no centro da viewport
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: 0.7, // A seção precisa de 30% de visibilidade para ativar (ajustado para cards grandes)
     };
 
     const observerCallback = (entries) => {

@@ -1,25 +1,23 @@
 import {
   AboutMe,
-  Hero,
-  Implementations,
-  Nav,
-  Patterns,
+  Expertises,
+  Profile,
   Projects,
   Technologies,
-  // PatternBackground,
+  TopNavBar,
 } from '@/components/index';
 
 const Home = ({ resizingCounter }) => {
   return (
     <>
-      <Nav />
+      <TopNavBar />
       <main className={`px-3 md:px-6 lg:px-12 pb-8`}>
         {/* <PatternBackground resizingCounter={resizingCounter} /> */}
-        <Hero resizingCounter={resizingCounter} />
+        <Profile resizingCounter={resizingCounter} />
         <Technologies />
         <AboutMe resizingCounter={resizingCounter} />
         <Projects resizingCounter={resizingCounter} />
-        <Implementations />
+        <Expertises />
       </main>
     </>
   );

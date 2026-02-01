@@ -17,7 +17,7 @@ export const projectsData: Project[] = [
     name: 'supermercado do bom',
     description:
       'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com google e para captura de endereço por coordenadas via Google Maps...',
-    image: './projects/',
+    image: './projects/supermercado.png',
     link: 'https://supermercadodobom.netlify.app/',
     githubLink: 'https://github.com/LeonardoSouzaBento/SupermercadoDoBom',
     functions: {
@@ -51,7 +51,7 @@ export const projectsData: Project[] = [
     functions: {
       '': '',
     },
-    mainLabel: 'tailwind CSS',
+    mainLabel: 'Tailwind CSS',
     labels: ['Radix UI'],
   },
   {
@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     functions: {
       '': '',
     },
-    mainLabel: 'tailwind CSS',
+    mainLabel: 'Tailwind CSS',
     labels: ['JavaScript', 'Shadcn UI'],
   },
   {

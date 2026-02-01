@@ -1,5 +1,6 @@
 import { cardStyles } from '@/App';
 import { contactLinks } from '@/data/contactData';
+import { SvgIcon } from '@/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
 import { useRef } from 'react';
 
@@ -12,13 +13,15 @@ const SocialMedia = () => {
   const aRef = useRef(null);
 
   return (
-    <Card className={`flex-auto`}>
+    <Card className={``}>
       <CardHeader>
-        <CardTitle>Redes Sociais</CardTitle>
+        <CardTitle>
+          <h3>Redes Sociais</h3>
+        </CardTitle>
       </CardHeader>
 
-      <CardContent className={`${cardStyles} pt-[1cap]`}>
-        {contactLinks.map((item) => (
+      <CardContent className={`${cardStyles} flex-auto`}>
+        {contactLinks.map((item, index) => (
           <a
             ref={aRef}
             className={css.link}
@@ -27,7 +30,7 @@ const SocialMedia = () => {
             target="_blank"
             rel="noopener noreferrer">
             <div className={`flex gap-2 items-center`}>
-              <img className="size-4.5 inline-flex" src={item.icon} alt={item.name} />
+              <img className="size-4.5 inline-flex grayscale-50" src={item.icon} alt={item.name} />
               <p className={`text-sm-button font-semibold -mb-1 text-[#0038C7]`}>{item.name}</p>
             </div>
             <p className={`text-sm-button text-muted-foreground p-0`}>{item.value}</p>

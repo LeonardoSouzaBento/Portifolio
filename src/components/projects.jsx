@@ -1,28 +1,25 @@
 import { projectsData } from '@/data/projectsData';
 import { useMouseScrollX } from '@/hooks/useMouseScrollX';
-import { Button, Card, CardContent, CardHeader, CardTitle } from '@/ui';
-import { CustomLink } from '@/ui/custom-link';
+import { Card, CardContent, CardHeader, CardTitle, Separator } from '@/ui';
 import { findTitle } from '@/utils/findTitle';
 import { useEffect, useRef, useState } from 'react';
-import { Patterns } from './projects/patterns';
+import { Patterns, Buttons, ProjectHeader, ProjectImage } from './projects/index';
 
+//bg-linear-to-t from-primary-50/25 to-transparent
 const css = {
-  container: `pt-1 pb-[1cap] pr-6 w-full flex gap-4 overflow-x-scroll [*]:touch-scroll-x [*]:select-none`,
-  wrapper: `h-144 min-w-84 border border-border/75 shadow-sm 
-  hover:shadow-md transition-all duration-200 br-lg pb-4 bg-background relative `,
-  imageWrapper: `w-full h-60 overflow-y-scroll rounded-t-lg relative bg-background/12 cursor-pointer`,
-  gradient: `h-8 absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary-1000/3 to-primary-50/0`,
-  img: `w-full h-auto object-cover bg-background/8`,
-  mainLabel: `pb-0.5 px-[0.9em] flex items-center backdrop-blur-xs bg-primary-50/66 br-full
+  cardContent: `overflow-hidden p-0 bg-primary-50/12 rounded-t-xl`,
+  container: `p-6 pt-5 w-full flex gap-4 sm:gap-5 overflow-x-scroll scrollbar-hidden 
+  [*]:touch-scroll-x [*]:select-none bg-transparent`,
+  wrapper: `h-144 xxs:min-w-70 xs:min-w-74 md-sm:min-w-80 sm:min-w-84 shadow-sm border border-border/30 hover:border-border/50 transition-all 
+  duration-200 rounded-lg pb-4 bg-light-bg relative`,
+  mainLabel: `pb-0.5 px-[0.9em] flex items-center backdrop-blur-xs bg-primary-50/66 rounded-full
   text-xs absolute top-2 left-2 z-2 shadow-xs/12 text-primary-1000 border border-primary-50/20`,
-  labelsWrapper: `flex flex-wrap gap-2 py-3 border-t border-b border-border/66`,
-  label: `text-xs bg-primary-50 text-primary-700 br-full px-[1cap] pb-0.5 max-w-max`,
 };
 
 const title = findTitle('projetos');
 
 export const Projects = ({ resizingCounter }) => {
-  const containerRef = useRef(null);
+  const parentRef = useRef(null);
   const scrollabDivRef = useRef(null);
   const [parentWidth, setParentWidth] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -30,8 +27,8 @@ export const Projects = ({ resizingCounter }) => {
   useMouseScrollX(scrollabDivRef, scrollWidth, parentWidth);
 
   function getVariables() {
-    if (containerRef.current || scrollabDivRef.current) {
-      const parentWidth = containerRef.current.offsetWidth;
+    if (parentRef.current || scrollabDivRef.current) {
+      const parentWidth = parentRef.current.offsetWidth;
       const scrollWidth = scrollabDivRef.current.scrollWidth;
       setParentWidth(parentWidth);
       setScrollWidth(scrollWidth);
@@ -47,53 +44,27 @@ export const Projects = ({ resizingCounter }) => {
   }, [resizingCounter]);
 
   return (
-    <Card id={title.keyWord} className={`home-section pr-0`}>
-      <CardHeader>
-        <CardTitle>{title.title}</CardTitle>
+    <Card id={title.keyWord} className={`home-section px-0 pb-0`}>
+      <CardHeader className="px-6 mb-0">
+        <CardTitle className="mb-2">
+          <h3>{title.title}</h3>
+        </CardTitle>
+        <Separator />
       </CardHeader>
-      <Patterns />
-      <CardContent className={`overflow-hidden pr-0`} ref={containerRef}>
+      <CardContent className={css.cardContent} ref={parentRef}>
         <div className={css.container} ref={scrollabDivRef}>
           {projectsData.map((project, index) => {
             const imageContraste = project.id === 'pet-shop' ? 'hue-rotate-9' : '';
             const textTransform = index === 5 ? 'normal-case' : 'capitalize';
-
             return (
               <div key={project.id} className={css.wrapper}>
                 {project.mainLabel && <div className={css.mainLabel}>{project.mainLabel}</div>}
-                <div className="relative">
-                  <div id="project-image-wrapper" className={css.imageWrapper}>
-                    <img src={project.image} className={`${css.img} ${imageContraste}`} alt="" />
-                  </div>
-                  <div className={css.gradient} />
-                </div>
+                <ProjectImage project={project} imageContraste={imageContraste} />
                 <div className={'overflow-hidden'}>
-                  <div className="px-4">
-                    <h6 className={`${textTransform} mt-ex-offset pb-ex-offset`}>{project.name}</h6>
-                    <div className={css.labelsWrapper}>
-                      {project.labels.map((label) => (
-                        <p key={label} className={css.label}>
-                          {label}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
+                  <ProjectHeader project={project} textTransform={textTransform} />
                   <div className={`h-max px-4 overflow-y-hidden`}>
                     <p className="text-sm pt-ex-offset pb-3">{project.description}</p>
-                    {project.id !== 'portfolio' && (
-                      <div
-                        className={`w-full pb-4 flex justify-center gap-4 
-                        absolute bottom-0 left-0`}>
-                        <Button variant="default">
-                          <CustomLink href={project.link || '#'} />
-                          Ver projeto
-                        </Button>
-                        <Button variant="outline">
-                          <CustomLink href={project.githubLink || '#'} target="_github" />
-                          Ver código
-                        </Button>
-                      </div>
-                    )}
+                    {project.id !== 'portfolio' && <Buttons project={project} />}
                   </div>
                 </div>
               </div>
@@ -101,6 +72,7 @@ export const Projects = ({ resizingCounter }) => {
           })}
         </div>
       </CardContent>
+      <Patterns />
     </Card>
   );
 };

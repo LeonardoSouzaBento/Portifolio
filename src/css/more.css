@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@layer components {
+  .bs {
+    @apply border border-black;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .crop {
+    @apply overflow-hidden;
+  }
+  .home-section {
+    @apply max-w-6xl mx-auto mb-6;
+  }
+  .outlined-wrapper {
+    @apply p-3 py-2 border rounded-lg;
+  }
+}

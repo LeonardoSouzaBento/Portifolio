@@ -17,7 +17,7 @@ const Badge = ({ resizingCounter }) => {
             alt="Foto do Leonardo Souza Bento"
           />
           <img
-            className={'size-15 absolute bottom-1 right-1'}
+            className={'size-15 absolute bottom-1 right-1 bg-transparent'}
             src="/logo-icons/React.svg"
             alt="Logo do React"
           />

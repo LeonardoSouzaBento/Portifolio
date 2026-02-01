@@ -2,7 +2,7 @@ import { logoIconPaths } from './imageIconPaths';
 
 const technologiesData = {
   front: [
-    { name: 'TypeScript e React', icon: logoIconPaths.typescript },
+    { name: 'TypeScript', icon: logoIconPaths.typescript },
     { name: 'Next Js', icon: logoIconPaths.nextJs },
     { name: 'Tailwind CSS', icon: logoIconPaths.tailwindCSS },
     { name: 'Styled Components', icon: logoIconPaths.styledComponents },

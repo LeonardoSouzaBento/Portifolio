@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useRef } from 'react';
 
 export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollStart = 'start') {
@@ -106,15 +107,15 @@ export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollSt
     };
 
     el.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', stopDragging);
-    window.addEventListener('mouseleave', stopDragging);
+    el.addEventListener('mousemove', onMouseMove);
+    el.addEventListener('mouseup', stopDragging);
+    el.addEventListener('mouseleave', stopDragging);
 
     return () => {
       el.removeEventListener('mousedown', onMouseDown);
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', stopDragging);
-      window.removeEventListener('mouseleave', stopDragging);
+      el.removeEventListener('mousemove', onMouseMove);
+      el.removeEventListener('mouseup', stopDragging);
+      el.removeEventListener('mouseleave', stopDragging);
     };
   }, [containerRef, scrollWidth, parentWidth]);
 }

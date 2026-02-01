@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 
-export const cardStyles = 'p-4 py-[1cap] border rounded-lg';
+export const cardStyles = 'p-3 py-2 border rounded-lg';
 
 function App() {
   const [resizingCounter, setResizingCounter] = useState(0);

@@ -1,7 +1,6 @@
 import { cardStyles } from '@/App';
-import { iconSm } from '@/css/lucideIcon';
 import useEqualizeSize from '@/hooks/useEqualizeSize';
-import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, Icon } from '@/ui/index';
 import { findTitle } from '@/utils/findTitle';
 import { Church, Heart, Scale, Trash2 } from 'lucide-react';
 import { useRef, useState } from 'react';
@@ -17,19 +16,26 @@ export const AboutMe = ({ resizingCounter }) => {
   return (
     <Card id={title.keyWord} className="home-section">
       <CardHeader>
-        <CardTitle>{title.title}</CardTitle>
+        <CardTitle>
+          <h3>{title.title}</h3>
+        </CardTitle>
       </CardHeader>
       <CardContent className={`${cardStyles} flex flex-row gap-[1ex]`}>
         <div className={`min-w-max min-h-full relative [&>div>svg]:text-primary-800`}>
           <div>
-            <Heart {...iconSm} className={`mt-[0.7ex] mb-[0.75cap]`} />
-            <Church {...iconSm} />
+            <Icon
+              Icon={Heart}
+              className={`mt-[0.7ex] mb-[0.75cap]`}
+              fill="var(--color-primary-50)"
+              size={"sm"}
+            />
+            <Icon Icon={Church} size={"sm"} />
           </div>
           <div
             className={`flex flex-col justify-between absolute bottom-0 left-0`}
             style={{ height: `${lastPWrapperHeight}px` }}>
-            <Scale {...iconSm} className={`mt-1.5`} />
-            <Trash2 {...iconSm} className={`mb-[1.1ex]`} />
+            <Icon Icon={Scale} className={`mt-1.5`} fill="var(--color-primary-50)" size={"sm"} />
+            <Icon Icon={Trash2} className={`mb-[1ex]`} fill="var(--color-icon-fill)" size={"sm"} />
           </div>
         </div>
         <div className={`[&>p]:pb-[0.5ex]`}>

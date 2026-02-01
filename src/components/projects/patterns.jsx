@@ -1,8 +1,6 @@
-import { cardStyles } from '@/App';
-import { iconMd, iconSm } from '@/css/lucideIcon';
 import { patterns } from '@/data/patterns';
+import { Icon, Separator } from '@/ui';
 import { CardContent } from '@/ui/card';
-import { findTitle } from '@/utils/findTitle';
 
 const css = {
   wrapper: `max-w-lg m-0 max-w-max`,
@@ -10,38 +8,35 @@ const css = {
   icon: `mt-1.5`,
 };
 
-const title = findTitle('padrões');
-
 const firstHalf = patterns.slice(0, 3);
 const secondHalf = patterns.slice(3);
+const patternsList = [firstHalf, secondHalf];
 
 export const Patterns = () => {
   return (
-    <div id={title.keyWord} className={'mb-4 mr-6 bg-primary-50/33 p-5 pb-4 pt-0 rounded-lg'}>
-      <h6 className={`w-full font-semibold pt-cap-offset mb-ex-offset text-primary`}>{title.title}</h6>
-      <CardContent className={`gap-0 flex flex-col md:flex-row md:gap-12`}>
-        <div className={css.wrapper}>
-          {firstHalf.map((pattern, index) => (
-            <div key={pattern.name} className={css.nameWrapper}>
-              <pattern.icon {...(index === 0 ? iconMd : iconSm)} className={css.icon} />
-              <div>
-                <p>{pattern.name}</p>
-                <p className={`text-sm text-muted-foreground`}>{pattern.description}</p>
+    <div className={'p-6.5 pt-1 pb-6 bg-linear-to-br from-secondary-50/25 to-secondary-50/18'}>
+      <h6 className={`w-full font-semibold pt-2 mb-ex-offset text-primary-800`}>
+        O que vou encontrar?
+      </h6>
+      <CardContent className={`max-w-max grid grid-cols-1 md:grid-cols-2 gap-6`}>
+        {patternsList.map((patternList) => (
+          <div key={patternList[0].name} className={css.wrapper}>
+            {patternList.map((pattern) => (
+              <div key={pattern.name} className={css.nameWrapper}>
+                <Icon
+                  Icon={pattern.icon}
+                  className={css.icon}
+                  fill={'var(--color-icon-fill)'}
+                  size={'sm'}
+                />
+                <div>
+                  <p>{pattern.name}</p>
+                  <p className={`text-sm text-muted-foreground`}>{pattern.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className={css.wrapper}>
-          {secondHalf.map((pattern) => (
-            <div key={pattern.name} className={css.nameWrapper}>
-              <pattern.icon {...iconSm} className={`${css.icon} scale-95`} />
-              <div>
-                <p>{pattern.name}</p>
-                <p className={`text-sm text-muted-foreground`}>{pattern.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
       </CardContent>
     </div>
   );
