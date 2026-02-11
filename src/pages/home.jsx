@@ -1,23 +1,23 @@
 import {
   AboutMe,
-  Expertises,
+  Experience,
   Profile,
   Projects,
   Technologies,
   TopNavBar,
 } from '@/components/index';
 
-const Home = ({ resizingCounter }) => {
+const Home = ({ resizeCount }) => {
   return (
     <>
       <TopNavBar />
       <main className={`px-3 md:px-6 lg:px-12 pb-8`}>
-        {/* <PatternBackground resizingCounter={resizingCounter} /> */}
-        <Profile resizingCounter={resizingCounter} />
+        {/* <PatternBackground resizeCount={resizeCount} /> */}
+        <Profile resizeCount={resizeCount} />
         <Technologies />
-        <AboutMe resizingCounter={resizingCounter} />
-        <Projects resizingCounter={resizingCounter} />
-        <Expertises />
+        <AboutMe resizeCount={resizeCount} />
+        <Projects resizeCount={resizeCount} />
+        <Experience />
       </main>
     </>
   );

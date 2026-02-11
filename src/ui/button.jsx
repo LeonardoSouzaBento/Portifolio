@@ -5,17 +5,17 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-md transition-all duration-300 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive relative capitalize leading-none rounded-full font-bold",
+  "h-fit inline-flex items-center justify-center box-border gap-2 rounded-md transition-all duration-300 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive relative capitalize leading-none rounded-full font-bold",
   {
     variants: {
       variant: {
-        default: 'bg-secondary-400 text-secondary-1000 hover:bg-secondary-300',
+        default: 'bg-secondary-300 text-secondary-900 hover:bg-secondary-300',
         destructive:
           'bg-destructive text-white hover:bg-destructive-hover focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:
-          'border-2 border-secondary-700 text-secondary-700 bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground',
+          'ring ring-secondary-700 text-secondary-700 bg-transparent shadow-xs',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+        ghost: 'border border-border',
         link: 'text-primary underline-offset-4 hover:underline',
         transparent: 'bg-transparent text-primary-foreground hover:bg-secondary-50',
       },
@@ -39,6 +39,41 @@ const buttonVariants = cva(
   },
 );
 
+const paddingExptions = {
+  variants: ['link', 'transparent'],
+  sizes: ['icon', 'icon-sm', 'icon-md', 'icon-lg'],
+};
+
+const paddings = {
+  default: {
+    sm: 'px-[0.9em] pt-[0.50497rem] pb-[0.71165rem]',
+    default: 'px-[0.9em] pt-[0.59208rem] pb-[0.81133rem]',
+    lg: 'px-[0.9em] pt-[0.67743rem] pb-[0.90993rem]',
+  },
+  outline: {
+    sm: 'px-[0.82743em] pt-[0.41406rem] pb-[0.62074rem]',
+    default: 'px-[0.83158em] pt-[0.50117rem] pb-[0.72042rem]',
+    lg: 'px-[0.83548em] pt-[0.58652rem] pb-[0.81902rem]',
+  },
+  ghost: {
+    sm: 'px-[0.82841em] py-[0.6076rem]',
+    default: 'px-[0.83429em] py-[0.70313rem]',
+    lg: 'px-[0.83982em] py-[0.79688rem]',
+  },
+};
+
+const getPaddings = (variant, size) => {
+  let padding = '';
+  if (!paddingExptions.sizes.includes(size) && !paddingExptions.variants.includes(variant)) {
+    if (variant === 'destructive' || variant === 'secondary') {
+      padding = paddings.default[size];
+    } else {
+      padding = paddings[variant][size];
+    }
+  }
+  return padding;
+};
+
 function Button({
   className,
   variant = 'default',
@@ -49,8 +84,7 @@ function Button({
   ...props
 }) {
   const Comp = asChild ? Slot : 'button';
-  const textSizes = ['sm', 'default', 'lg', undefined, null];
-  const paddingInline = textSizes.includes(size) ? 'px-[0.9em]' : '';
+  const padding = getPaddings(variant, size);
 
   return (
     <Comp
@@ -60,7 +94,7 @@ function Button({
       className={cn(
         buttonVariants({ variant, size }),
         className,
-        paddingInline,
+        padding,
         flex ? "flex" : "",
         wFull ? "w-full" : "",
       )}

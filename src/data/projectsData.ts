@@ -1,5 +1,5 @@
 interface Project {
-  id: 'supermercado' | 'catalogo' | 'css' | 'portfolio' | 'filmes' | 'pet-shop';
+  id: 'supermercado' | 'catalogo' | 'css' | 'filmes' | 'pet-shop';
   name: string;
   description: string;
   image: string;
@@ -16,7 +16,7 @@ export const projectsData: Project[] = [
     id: 'supermercado',
     name: 'supermercado do bom',
     description:
-      'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com google e para captura de endereço por coordenadas via Google Maps...',
+      'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com Google e para captura de endereço por coordenadas via Google Maps...',
     image: './projects/supermercado.png',
     link: 'https://supermercadodobom.netlify.app/',
     githubLink: 'https://github.com/LeonardoSouzaBento/SupermercadoDoBom',
@@ -30,8 +30,9 @@ export const projectsData: Project[] = [
   {
     id: 'catalogo',
     name: 'catálogo de roupas',
-    description: '',
-    image: './projects/',
+    description:
+      'Um projeto feito em Next.js que permitiria a criação e hospedagem de catálogos de roupas para vários lojistas, todos sob o mesmo domínio...',
+    image: './projects/catalogo.png',
     link: 'https://catalogo-de-roupas.vercel.app/',
     githubLink: 'https://github.com/LeonardoSouzaBento/CatalogoDeRoupas',
     functions: {
@@ -53,19 +54,6 @@ export const projectsData: Project[] = [
     },
     mainLabel: 'Tailwind CSS',
     labels: ['Radix UI'],
-  },
-  {
-    id: 'portfolio',
-    name: 'Portfólio',
-    description: '',
-    image: './projects/',
-    link: 'https://leonardobentodev.netlify.app/',
-    githubLink: 'https://github.com/LeonardoSouzaBento/Portifolio',
-    functions: {
-      '': '',
-    },
-    mainLabel: 'Tailwind CSS',
-    labels: ['JavaScript', 'Shadcn UI'],
   },
   {
     id: 'filmes',

@@ -1,5 +1,5 @@
 import { cardStyles } from '@/App';
-import useEqualizeSize from '@/hooks/useEqualizeSize';
+import { useEqualizeSize } from '@/hooks/useEqualizeSize';
 import { Card, CardContent, CardHeader, CardTitle, Icon } from '@/ui/index';
 import { findTitle } from '@/utils/findTitle';
 import { Church, Heart, Scale, Trash2 } from 'lucide-react';
@@ -7,11 +7,11 @@ import { useRef, useState } from 'react';
 
 const title = findTitle('sobre mim');
 
-export const AboutMe = ({ resizingCounter }) => {
+export const AboutMe = ({ resizeCount }) => {
   const lastPWrapperRef = useRef(null);
   const [lastPWrapperHeight, setLastPWrapperHeight] = useState(0);
 
-  useEqualizeSize(lastPWrapperRef, setLastPWrapperHeight, resizingCounter);
+  useEqualizeSize(lastPWrapperRef, setLastPWrapperHeight, resizeCount);
 
   return (
     <Card id={title.keyWord} className="home-section">
@@ -22,39 +22,24 @@ export const AboutMe = ({ resizingCounter }) => {
       </CardHeader>
       <CardContent className={`${cardStyles} flex flex-row gap-[1ex]`}>
         <div className={`min-w-max min-h-full relative [&>div>svg]:text-primary-800`}>
-          <div>
-            <Icon
-              Icon={Heart}
-              className={`mt-[0.7ex] mb-[0.75cap]`}
-              fill="var(--color-primary-50)"
-              size={"sm"}
-            />
-            <Icon Icon={Church} size={"sm"} />
-          </div>
-          <div
-            className={`flex flex-col justify-between absolute bottom-0 left-0`}
-            style={{ height: `${lastPWrapperHeight}px` }}>
-            <Icon Icon={Scale} className={`mt-1.5`} fill="var(--color-primary-50)" size={"sm"} />
-            <Icon Icon={Trash2} className={`mb-[1ex]`} fill="var(--color-icon-fill)" size={"sm"} />
+          <Icon Icon={Church} size={'sm'} className="mt-2" />
+
+          <div className={`absolute bottom-0 left-0`} style={{ height: `${lastPWrapperHeight}px` }}>
+            <Icon Icon={Scale} className={`mt-1.5`} fill="var(--color-primary-50)" size={'sm'} />
           </div>
         </div>
         <div className={`[&>p]:pb-[0.5ex]`}>
           <p>
-            Tenho sabedoria e consideração pelo próximo. <br /> Busco convívio harmonioso, não luto
-            por posições nem ando em inveja. Ao contrário disso, aceito minha situação, como Jesus
-            ensinou, pois sei que Deus é quem determina a posição de todos, ele quem decide a glória
-            que cada um chegará a ter. Essa humildade me faz ser realista e aberto a críticas. Sou
-            altamente confiável, pois o temor de Deus e seu Espírito Santo estão em mim,
-            fornecendo-me temperança.
+            Minha atuação profissional é pautada pela consideração ao próximo, busco contribuir para
+            um ambiente de trabalho harmonioso sendo uma pessoa humilde, realista, aberta a críticas
+            e confiável.
           </p>
           <div ref={lastPWrapperRef} className={`[&>p]:pb-[0.5ex]`}>
             <p>
-              Busco uma vida equilibrada, sem vício em drogas ou paixão por mulheres da vida. E
-              também sei que as práticas da vida pessoal impactam negativamente a vida profissional.
-              Exerço minhas atividades com alegria e foco, com dedicação. É esse profissional que
-              você vai encontrar em mim.
+              Entendo que o desempenho profissional está diretamente ligado a uma vida pessoal
+              saudável e regrada, por isso, executo minhas atividades com alto nível de foco,
+              engajamento e comprometimento.
             </p>
-            <p>Se não é importante ter um profissional como esse no seu time, dispense-me.</p>
           </div>
         </div>
       </CardContent>

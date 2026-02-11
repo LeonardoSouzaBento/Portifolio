@@ -4,12 +4,12 @@ import { findTitle } from '@/utils/findTitle';
 
 const title = findTitle('redes sociais');
 
-export const Profile = ({ resizingCounter }) => {
+export const Profile = ({ resizeCount }) => {
   return (
     <section
-      id={title.keyWord}
+      id={`${title.keyWord}`}
       className={`grid grid-cols-1 gap-6 min-[830px]:grid-cols-2 mb-6 home-section`}>
-      <Badge resizingCounter={resizingCounter} />
+      <Badge resizeCount={resizeCount} />
       <SocialMedia />
     </section>
   );

@@ -43,7 +43,7 @@ const generateIcons = (setIcons, screenWidth, screenHeight) => {
   setIcons(newIcons);
 };
 
-export function PatternBackground({ resizingCounter }) {
+export function PatternBackground({ resizeCount }) {
   const [icons, setIcons] = useState([]);
 
   useEffect(() => {
@@ -52,10 +52,12 @@ export function PatternBackground({ resizingCounter }) {
 
   useEffect(() => {
     generateIcons(setIcons, window.innerWidth, window.innerHeight);
-  }, [resizingCounter]);
+  }, [resizeCount]);
 
   return (
-    <div className={`fixed top-0 left-0 -z-4 w-full h-full grayscale-100 opacity-8 overflow-hidden`} id="pattern">
+    <div
+      className={`fixed top-0 left-0 -z-4 w-full h-full grayscale-100 opacity-8 overflow-hidden`}
+      id="pattern">
       {icons.map((icon) => (
         <ReactIcon key={icon.id} {...icon} />
       ))}

@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
+
+
 export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollStart = 'start') {
   const isDragging = useRef(false);
   const startX = useRef(0);

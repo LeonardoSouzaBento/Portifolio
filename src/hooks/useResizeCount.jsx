@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-function useResizeWatcher(setResizingCounter) {
+export function useResizeCount(setResizeCount) {
   const windowWidthInitialRef = useRef(null);
   const resizeDowntime = useRef(null);
 
@@ -19,21 +19,19 @@ function useResizeWatcher(setResizingCounter) {
           windowWidthInitialRef.current !== null &&
           widthOfWindow !== windowWidthInitialRef.current
         ) {
-          setResizingCounter((prev) => prev + 1);
+          setResizeCount((prev) => prev + 1);
           windowWidthInitialRef.current = widthOfWindow;
         }
       }, 500);
     }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
       if (resizeDowntime.current) {
         clearTimeout(resizeDowntime.current);
       }
     };
-  }, [setResizingCounter]);
+  }, [setResizeCount]);
 }
-
-export default useResizeWatcher;

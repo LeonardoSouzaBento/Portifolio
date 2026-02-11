@@ -50,7 +50,7 @@
   --color-primary-900: #00323c;
   --color-primary-950: #00242d;
   --color-primary-1000: #00181f;
-  --color-icon-fill: hsla(185, 23%, 90%, 0.30);
+  --color-icon-fill: hsla(185, 23%, 90%, 0.3);
   /* secondary #61b3fa */
   --color-secondary-50: #eff5ff;
   --color-secondary-100: #deecfe;
@@ -139,6 +139,15 @@
     -moz-user-drag: none;
     -ms-user-drag: none;
   }
+  img,
+  button,
+  a {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+  }
+
   main {
     @apply px-3 md:px-6 lg:px-12;
   }

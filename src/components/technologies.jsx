@@ -3,54 +3,40 @@ import { technologiesData } from '../data/technologiesData';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Separator } from '@/ui';
 
-const css = {
-  subtitle: `text-lg tracking-tight font-medium mb-1.5 text-muted-foreground`,
-  text: `text-base`,
-  nameWrapper: `flex gap-[1ex] items-center`,
-  iconImg: `rounded-xs overflow-hidden mt-[0.25ex]`,
-};
-
 const title = findTitle('tecnologias');
 
 export const Technologies = () => {
   return (
-    <Card id={title.keyWord} className={'home-section'}>
+    <Card id={title.keyWord} className="home-section">
       <CardHeader>
         <CardTitle>
           <h3>{title.title}</h3>
         </CardTitle>
       </CardHeader>
 
-      <CardContent className={`grid grid-cols-1 min-[830px]:grid-cols-[1fr_1.4fr]  gap-4`}>
-        <ListWrapper subtitle={'Front-End'}>
-          <>
-            {technologiesData.front.map((tech, index) => {
-              const lastItem =
-                index === technologiesData.front.length - 1 ? `size-3.5` : `size-4.5`;
-              const styledComponents = tech.name === 'Styled Components' ? `size-5.5` : ``;
-              return (
-                <div key={tech.name} className={css.nameWrapper}>
-                  <img
-                    src={tech.icon}
-                    alt={tech.name}
-                    className={`${css.iconImg} ${lastItem} ${styledComponents}`}
-                  />
-                  <p className={`${css.text} ${styledComponents && '-ml-1'}`}>{tech.name}</p>
-                </div>
-              );
-            })}
-          </>
-        </ListWrapper>
-        <ListWrapper subtitle="Back-end">
-          <>
-            {technologiesData.back.map((tech) => (
-              <div key={tech.name} className={css.nameWrapper}>
-                <img src={tech.icon} alt={tech.name} className={`${css.iconImg} size-4.5`} />
-                <p className={css.text}>{tech.name}</p>
+      <CardContent className="grid grid-cols-1 pre-lg:grid-cols-2 gap-4">
+        {technologiesData.map(({ id, title, list, icons }) => (
+          <ListWrapper key={id} subtitle={title}>
+            <div className="max-w-max grid grid-cols-1 sm:grid-cols-[2.5fr_1fr] gap-4 sm:flex-row
+            lg:grid-cols-1 ">
+              <ul className="list-disc list-inside space-y-1">
+                {list.map((tech) => (
+                  <li key={tech} className="[&]:marker:text-xs [&]:marker:text-primary">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              <div
+                className="w-full flex flex-wrap justify-between gap-3
+                xs:grid grid-cols-7 max-w-72 sm:grid-cols-3 lg:flex">
+                {icons.map((icon) => {
+                  const next = icon === '/logo-icons/nextdotjs.svg' ? 'size-11 -mt-1' : '';
+                  return <img key={icon} src={icon} alt="" className={next || 'size-6'} />;
+                })}
               </div>
-            ))}
-          </>
-        </ListWrapper>
+            </div>
+          </ListWrapper>
+        ))}
       </CardContent>
     </Card>
   );
@@ -59,10 +45,7 @@ export const Technologies = () => {
 const ListWrapper = ({ children, subtitle }) => {
   return (
     <div className="p-3 rounded-md border border-border/75 pt-1 [&>div]:space-y-2">
-      <p
-        className={`text-lg font-bold tracking-tight text-muted-foreground`}>
-        {subtitle}
-      </p>
+      <p className={`text-lg font-bold tracking-tight text-muted-foreground`}>{subtitle}</p>
       <Separator className="mb-2 border-border/75" />
       <div>{children}</div>
     </div>

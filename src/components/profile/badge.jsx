@@ -2,10 +2,10 @@ import { useEqualizeSize } from '@/hooks';
 import { Card } from '@/ui/card';
 import { useRef, useState } from 'react';
 
-const Badge = ({ resizingCounter }) => {
+const Badge = ({ resizeCount }) => {
   const h1Ref = useRef(null);
   const [titleWidth, setTitleWidth] = useState(0);
-  useEqualizeSize(h1Ref, setTitleWidth, resizingCounter, 'width');
+  useEqualizeSize(h1Ref, setTitleWidth, resizeCount, 'width');
 
   return (
     <Card className={'flex flex-col gap-3 overflow-hidden'} hasHeader={false}>
@@ -18,7 +18,7 @@ const Badge = ({ resizingCounter }) => {
           />
           <img
             className={'size-15 absolute bottom-1 right-1 bg-transparent'}
-            src="/logo-icons/React.svg"
+            src="/logo-icons/react.svg"
             alt="Logo do React"
           />
         </div>

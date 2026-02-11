@@ -8,8 +8,8 @@ export const sectionsTitles = [
     subtitle: 'Visualize alguns dos projetos que criei',
   },
   {
-    title: 'Expertises',
-    keyWord: 'expertises',
+    title: 'Minha experiência',
+    keyWord: 'experiencia',
     subtitle: 'Funcionalidades que já implementei',
   },
 ];

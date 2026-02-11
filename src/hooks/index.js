@@ -1,2 +1,3 @@
-export { default as useEqualizeSize } from './useEqualizeSize';
-export { default as useResizeWatcher } from './useResizingCounter';
+export * from './useEqualizeSize';
+export * from './useResizeCount';
+export * from './useMouseScrollX';

@@ -1,4 +1,4 @@
-import useResizeWatcher from '@/hooks/useResizingCounter';
+import { useResizeCount } from '@/hooks/useResizeCount';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
@@ -6,14 +6,16 @@ import Home from './pages/home';
 export const cardStyles = 'p-3 py-2 border rounded-lg';
 
 function App() {
-  const [resizingCounter, setResizingCounter] = useState(0);
-  useResizeWatcher(setResizingCounter);
+  const [resizeCount, setResizeCount] = useState(0);
+  useResizeCount(setResizeCount);
 
   useEffect(() => {
-    setResizingCounter((prev) => prev + 1);
     setTimeout(() => {
-      setResizingCounter((prev) => prev + 1);
-    }, 300);
+      setResizeCount((prev) => prev + 1);
+    }, 100);
+    setTimeout(() => {
+      setResizeCount((prev) => prev + 1);
+    }, 200);
   }, []);
 
   return (
@@ -24,7 +26,7 @@ function App() {
           v7_relativeSplatPath: true,
         }}>
         <Routes>
-          <Route path="/" element={<Home resizingCounter={resizingCounter} />} />
+          <Route path="/" element={<Home resizeCount={resizeCount} />} />
         </Routes>
       </BrowserRouter>
     </>

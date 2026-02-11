@@ -1,6 +1,5 @@
 import { cardStyles } from '@/App';
 import { contactLinks } from '@/data/contactData';
-import { SvgIcon } from '@/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
 import { useRef } from 'react';
 
@@ -30,7 +29,11 @@ const SocialMedia = () => {
             target="_blank"
             rel="noopener noreferrer">
             <div className={`flex gap-2 items-center`}>
-              <img className="size-4.5 inline-flex grayscale-50" src={item.icon} alt={item.name} />
+              <img
+                className={`inline-flex opacity-80 ${index !== 1 ? 'size-5 -mb-1' : 'size-4 -mb-1.5'}`}
+                src={item.icon}
+                alt={item.name}
+              />
               <p className={`text-sm-button font-semibold -mb-1 text-[#0038C7]`}>{item.name}</p>
             </div>
             <p className={`text-sm-button text-muted-foreground p-0`}>{item.value}</p>

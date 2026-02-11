@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { sectionsTitles } from '../data/sectionsTitles';
 import { NavLink } from 'react-router-dom';
+import { useRef } from 'react';
 
 const css = {
   nav: `mb-3 md:mb-4 shadow-sm/12 sticky top-0 z-6 backdrop-blur-sm border-b 
@@ -16,14 +17,14 @@ const css = {
 
 export const TopNavBar = () => {
   const [activeId, setActiveId] = useState('');
+  const sectionRefs = useRef({});
 
   useEffect(() => {
     const observerOptions = {
       root: null,
-      // rootMargin: 'cima direita baixo esquerda'
-      // Detecta quando a seção está no centro da viewport
-      rootMargin: '-20% 0px -20% 0px',
-      threshold: 0.7, // A seção precisa de 30% de visibilidade para ativar (ajustado para cards grandes)
+      //encolher ou aumentar a area de observação, cima direita baixo esquerda
+      rootMargin: '0px',
+      threshold: 0.6,
     };
 
     const observerCallback = (entries) => {
@@ -39,22 +40,42 @@ export const TopNavBar = () => {
     // Observa todas as seções que possuem os IDs definidos no sectionsTitles
     sectionsTitles.forEach(({ keyWord }) => {
       const element = document.getElementById(keyWord);
-      if (element) observer.observe(element);
+      if (element) {
+        sectionRefs.current[keyWord] = element;
+        observer.observe(element);
+      }
     });
 
     return () => observer.disconnect();
   }, []);
 
+  const handleScrollToTop = (keyWord) => {
+    setActiveId(keyWord);
+    const section = sectionRefs.current[keyWord] || document.getElementById(keyWord);
+    const sectionY = section.getBoundingClientRect().top + window.pageYOffset - 48;
+
+    window.scrollTo({
+      top: sectionY,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <nav className={css.nav}>
       <div className={css.wrapper}>
-        {sectionsTitles.map(({ _, keyWord }) => {
+        {sectionsTitles.map(({ title, keyWord }) => {
           const sectionName = keyWord.charAt(0).toUpperCase() + keyWord.slice(1);
+
           return (
-            <div key={keyWord} className={css.wrapperLink}>
-              <NavLink to={`#${keyWord}`} className={`${css.navLink}`}>
+            <div key={title} className={css.wrapperLink}>
+              <a
+                className={css.navLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToTop(keyWord);
+                }}>
                 {sectionName}
-              </NavLink>
+              </a>
               <div
                 className={`${css.border} ${
                   activeId === keyWord ? css.activeBorder : css.inactiveBorder
