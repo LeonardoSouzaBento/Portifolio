@@ -28,7 +28,7 @@ const sizes = ['small', 'medium', 'large', 'largest'];
 
 const generateIcons = (setIcons, screenWidth, screenHeight) => {
   const iconCount = Math.floor((screenWidth * screenHeight) / 9000);
-  const sizeValue = Math.random() * (90 - 30) + 30;
+  const sizeValue = Math.random() * (120 - 60) + 60;
 
   const newIcons = Array.from({ length: iconCount }).map((_, i) => ({
     id: i,
@@ -56,7 +56,7 @@ export function PatternBackground({ resizeCount }) {
 
   return (
     <div
-      className={`fixed top-0 left-0 -z-4 w-full h-full grayscale-100 opacity-8 overflow-hidden`}
+      className={`fixed top-0 left-0 -z-4 w-full h-full grayscale-100 opacity-12 overflow-hidden`}
       id="pattern">
       {icons.map((icon) => (
         <ReactIcon key={icon.id} {...icon} />
