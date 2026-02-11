@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-function Card({ className, hasHeader = true, ...props }) {
+function Card({ className, hasheader = true, ...props }) {
   return (
     <section
       data-slot="card"
       className={cn(
         `bg-card text-card-foreground border border-border/33 rounded-xl 
         py-6 shadow-md max-w-6xl hover:shadow-lg transition-all duration-200 flex flex-col`,
-        hasHeader ? 'p-6 pt-3.5' : 'p-6',
+        hasheader ? 'p-6 pt-3.5' : 'p-6',
         className
       )}
       {...props}

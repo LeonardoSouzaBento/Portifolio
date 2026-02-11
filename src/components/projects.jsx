@@ -1,9 +1,9 @@
-import { projectsData } from '@/data/projectsData';
-import { useMouseScrollX } from '@/hooks/useMouseScrollX';
-import { Card, CardContent, CardHeader, CardTitle, Separator } from '@/ui';
-import { findTitle } from '@/utils/findTitle';
-import { useEffect, useRef, useState } from 'react';
-import { Patterns, Buttons, ProjectHeader, ProjectImage } from './projects/index';
+import { projectsData } from "@/data/projectsData";
+import { useMouseScrollX } from "@/hooks/useMouseScrollX";
+import { Card, CardContent, CardHeader, CardTitle, Separator } from "@/ui";
+import { findTitle } from "@/utils/findTitle";
+import { useRef } from "react";
+import { Links, Patterns, ProjectHeader, ProjectImage } from "./projects/index";
 
 //bg-linear-to-t from-primary-50/25 to-transparent
 const css = {
@@ -16,32 +16,13 @@ const css = {
   text-xs absolute top-2 left-2 z-2 shadow-xs/12 text-primary-1000 border border-primary-50/20`,
 };
 
-const title = findTitle('projetos');
+const title = findTitle("projetos");
 
-export const Projects = ({ resizingCounter }) => {
+export const Projects = ({ resizeCount }) => {
   const parentRef = useRef(null);
-  const scrollabDivRef = useRef(null);
-  const [parentWidth, setParentWidth] = useState(0);
-  const [scrollWidth, setScrollWidth] = useState(0);
+  const wrapperRef = useRef(null);
 
-  useMouseScrollX(scrollabDivRef, scrollWidth, parentWidth);
-
-  function getVariables() {
-    if (parentRef.current || scrollabDivRef.current) {
-      const parentWidth = parentRef.current.offsetWidth;
-      const scrollWidth = scrollabDivRef.current.scrollWidth;
-      setParentWidth(parentWidth);
-      setScrollWidth(scrollWidth);
-    }
-  }
-
-  useEffect(() => {
-    getVariables();
-  }, []);
-
-  useEffect(() => {
-    getVariables();
-  }, [resizingCounter]);
+  useMouseScrollX(parentRef, wrapperRef, resizeCount);
 
   return (
     <Card id={title.keyWord} className={`home-section px-0 pb-0`}>
@@ -52,19 +33,30 @@ export const Projects = ({ resizingCounter }) => {
         <Separator />
       </CardHeader>
       <CardContent className={css.cardContent} ref={parentRef}>
-        <div className={css.container} ref={scrollabDivRef}>
+        <div className={css.container} ref={wrapperRef}>
           {projectsData.map((project, index) => {
-            const imageContraste = project.id === 'pet-shop' ? 'hue-rotate-9' : '';
-            const textTransform = index === 5 ? 'normal-case' : 'capitalize';
+            const imageContraste =
+              project.id === "pet-shop" ? "hue-rotate-9" : "";
+            const textTransform = index === 5 ? "normal-case" : "capitalize";
             return (
               <div key={project.id} className={css.wrapper}>
-                {project.mainLabel && <div className={css.mainLabel}>{project.mainLabel}</div>}
-                <ProjectImage project={project} imageContraste={imageContraste} />
-                <div className={'overflow-hidden'}>
-                  <ProjectHeader project={project} textTransform={textTransform} />
+                {project.mainLabel && (
+                  <div className={css.mainLabel}>{project.mainLabel}</div>
+                )}
+                <ProjectImage
+                  project={project}
+                  imageContraste={imageContraste}
+                />
+                <div className={"overflow-hidden"}>
+                  <ProjectHeader
+                    project={project}
+                    textTransform={textTransform}
+                  />
                   <div className={`h-max px-4 overflow-y-hidden`}>
-                    <p className="text-sm pt-ex-offset pb-3">{project.description}</p>
-                    {project.id !== 'portfolio' && <Buttons project={project} />}
+                    <p className="text-sm pt-ex-offset pb-3">
+                      {project.description}
+                    </p>
+                    {project.id !== "portfolio" && <Links project={project} />}
                   </div>
                 </div>
               </div>

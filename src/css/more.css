@@ -13,6 +13,10 @@
   .home-section {
     @apply max-w-6xl mx-auto mb-6;
   }
+  .card-wrapper {
+   @apply p-3 py-2 border rounded-lg;
+  }
+  
   .outlined-wrapper {
     @apply p-3 py-2 border rounded-lg;
   }

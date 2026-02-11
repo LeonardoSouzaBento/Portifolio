@@ -2,13 +2,13 @@ import { useEqualizeSize } from '@/hooks';
 import { Card } from '@/ui/card';
 import { useRef, useState } from 'react';
 
-const Badge = ({ resizeCount }) => {
+export const Badge = ({ resizeCount }) => {
   const h1Ref = useRef(null);
   const [titleWidth, setTitleWidth] = useState(0);
   useEqualizeSize(h1Ref, setTitleWidth, resizeCount, 'width');
 
   return (
-    <Card className={'flex flex-col gap-3 overflow-hidden'} hasHeader={false}>
+    <Card className={'flex flex-col gap-3 overflow-hidden'} hasheader={false}>
       <div className={'h-max w-full flex justify-center [&>div]:relative'}>
         <div>
           <img
@@ -32,5 +32,3 @@ const Badge = ({ resizeCount }) => {
     </Card>
   );
 };
-
-export default Badge;

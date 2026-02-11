@@ -44,7 +44,7 @@ export const Technologies = () => {
 
 const ListWrapper = ({ children, subtitle }) => {
   return (
-    <div className="p-3 rounded-md border border-border/75 pt-1 [&>div]:space-y-2">
+    <div className="px-1.5 pt-1 pb-3 rounded-md [&>div]:space-y-2">
       <p className={`text-lg font-bold tracking-tight text-muted-foreground`}>{subtitle}</p>
       <Separator className="mb-2 border-border/75" />
       <div>{children}</div>

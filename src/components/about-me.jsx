@@ -1,4 +1,3 @@
-import { cardStyles } from '@/App';
 import { useEqualizeSize } from '@/hooks/useEqualizeSize';
 import { Card, CardContent, CardHeader, CardTitle, Icon } from '@/ui/index';
 import { findTitle } from '@/utils/findTitle';
@@ -20,7 +19,7 @@ export const AboutMe = ({ resizeCount }) => {
           <h3>{title.title}</h3>
         </CardTitle>
       </CardHeader>
-      <CardContent className={`${cardStyles} flex flex-row gap-[1ex]`}>
+      <CardContent className={`card-wrapper flex flex-row gap-[1ex]`}>
         <div className={`min-w-max min-h-full relative [&>div>svg]:text-primary-800`}>
           <Icon Icon={Church} size={'sm'} className="mt-2" />
 

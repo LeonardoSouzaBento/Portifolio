@@ -1,9 +1,15 @@
-'use client';
-import { useEffect, useRef } from 'react';
+"use client";
+import { useLayoutEffect, useRef, useState } from "react";
 
+export function useMouseScrollX(
+  parentRef,
+  wrapperRef,
+  resizeConut,
+  scrollStart = "start",
+) {
+  const [parentWidth, setParentWidth] = useState(0);
+  const [scrollWidth, setScrollWidth] = useState(0);
 
-
-export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollStart = 'start') {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const startScrollLeft = useRef(0);
@@ -14,30 +20,45 @@ export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollSt
   const lastTime = useRef(0);
   const velocity = useRef(0);
 
-  // 🔹 Configurações
-  const VELOCITY_THRESHOLD = 0.5; // px/ms
+  // configs
+  const VELOCITY_THRESHOLD = 0.5;
   const INERTIA_MULTIPLIER = 300;
   const MAX_EXTRA_SCROLL = 500;
 
-  // 🔹 Define posição inicial
-  useEffect(() => {
-    const el = containerRef.current;
+  useLayoutEffect(() => {
+    const parent = parentRef.current;
+    const wrapper = wrapperRef.current;
+    if (!parent || !wrapper) return;
+
+    const updateSizes = () => {
+      setParentWidth(parent.offsetWidth);
+      setScrollWidth(wrapper.scrollWidth);
+    };
+
+    updateSizes();
+  }, [resizeConut]);
+
+  /* 🔹 Scroll inicial */
+  useLayoutEffect(() => {
+    const el = wrapperRef.current;
     if (!el) return;
 
-    if (scrollStart === 'center') {
-      const centerOffset = Math.max(0, (scrollWidth - parentWidth) / 2);
-      el.scrollLeft = centerOffset;
+    if (scrollWidth <= parentWidth) return;
+
+    if (scrollStart === "center") {
+      el.scrollLeft = Math.max(0, (scrollWidth - parentWidth) / 2);
     } else {
       el.scrollLeft = 0;
     }
-  }, [scrollStart, scrollWidth, parentWidth, containerRef]);
+  }, [scrollStart, scrollWidth, parentWidth, wrapperRef]);
 
-  useEffect(() => {
-    const el = containerRef.current;
+  /* 🔹 Drag + inércia */
+  useLayoutEffect(() => {
+    const el = wrapperRef.current;
     if (!el) return;
+    if (scrollWidth <= parentWidth) return;
 
     const maxScroll = scrollWidth - parentWidth;
-
     const clamp = (v, min, max) => Math.max(min, Math.min(v, max));
 
     const onMouseDown = (e) => {
@@ -47,14 +68,14 @@ export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollSt
       }
 
       isDragging.current = true;
-
       startX.current = e.pageX;
       startScrollLeft.current = el.scrollLeft;
 
       lastX.current = e.pageX;
       lastTime.current = performance.now();
       velocity.current = 0;
-      el.style.userSelect = 'none';
+
+      el.style.userSelect = "none";
     };
 
     const onMouseMove = (e) => {
@@ -63,14 +84,11 @@ export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollSt
       const deltaX = e.pageX - startX.current;
       el.scrollLeft = clamp(startScrollLeft.current - deltaX, 0, maxScroll);
 
-      // 🔹 calcular velocidade
       const now = performance.now();
       const dx = e.pageX - lastX.current;
       const dt = now - lastTime.current;
 
-      if (dt > 0) {
-        velocity.current = dx / dt; // px/ms
-      }
+      if (dt > 0) velocity.current = dx / dt;
 
       lastX.current = e.pageX;
       lastTime.current = now;
@@ -108,16 +126,16 @@ export function useMouseScrollX(containerRef, scrollWidth, parentWidth, scrollSt
       applyInertia();
     };
 
-    el.addEventListener('mousedown', onMouseDown);
-    el.addEventListener('mousemove', onMouseMove);
-    el.addEventListener('mouseup', stopDragging);
-    el.addEventListener('mouseleave', stopDragging);
+    el.addEventListener("mousedown", onMouseDown);
+    el.addEventListener("mousemove", onMouseMove);
+    el.addEventListener("mouseup", stopDragging);
+    el.addEventListener("mouseleave", stopDragging);
 
     return () => {
-      el.removeEventListener('mousedown', onMouseDown);
-      el.removeEventListener('mousemove', onMouseMove);
-      el.removeEventListener('mouseup', stopDragging);
-      el.removeEventListener('mouseleave', stopDragging);
+      el.removeEventListener("mousedown", onMouseDown);
+      el.removeEventListener("mousemove", onMouseMove);
+      el.removeEventListener("mouseup", stopDragging);
+      el.removeEventListener("mouseleave", stopDragging);
     };
-  }, [containerRef, scrollWidth, parentWidth]);
+  }, [wrapperRef, scrollWidth, parentWidth]);
 }
