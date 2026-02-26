@@ -11,11 +11,13 @@ export const Badge = ({ resizeCount }) => {
     <Card className={'flex flex-col gap-3 overflow-hidden'} hasheader={false}>
       <div className={'h-max w-full flex justify-center [&>div]:relative'}>
         <div>
-          <img
-            className={'size-50 rounded-full shadow-profile'}
-            src="/profile-photo.png"
-            alt="Foto do Leonardo Souza Bento"
-          />
+          <div className='size-50 rounded-full overflow-hidden'>
+            <img
+              className={'size-full rounded-full shadow-profile scale-105'}
+              src="/profile-photo.png"
+              alt="Foto do Leonardo Souza Bento"
+            />
+          </div>
           <img
             className={'size-15 absolute bottom-1 right-1 bg-transparent'}
             src="/logo-icons/react.svg"

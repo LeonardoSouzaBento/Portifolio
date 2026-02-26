@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 
 export const useEqualizeSize = (ref, setSize, resizeCount, dimension = 'height') => {
   function updateSize() {
@@ -11,7 +11,7 @@ export const useEqualizeSize = (ref, setSize, resizeCount, dimension = 'height')
     }
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     updateSize();
   }, []);
 

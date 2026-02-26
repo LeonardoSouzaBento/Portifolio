@@ -1,0 +1,237 @@
+NÍCIO DO CONTEÚDO PARA allData.txt
+
+Modelo de banco de dados relacional (PostgreSQL) para o portfólio
+
+TABELA: sections
+(descreve os títulos das seções da página)
+
+Campos:
+
+- id              (integer, PK)
+- title           (text, NOT NULL)
+- keyword         (text, NOT NULL)
+- subtitle        (text, NULL)
+Registros:
+1 | 'Redes sociais'       | 'redes sociais' | NULL
+2 | 'Tecnologias'         | 'tecnologias'   | NULL
+3 | 'Sobre mim'           | 'sobre mim'     | 'Saiba que tipo de pessoa sou'
+4 | 'Projetos'            | 'projetos'      | 'Visualize alguns dos projetos que criei'
+5 | 'Minha experiência'   | 'experiencia'   | 'Funcionalidades que já implementei'
+
+TABELA: contact_links
+(links de contato/redes sociais)
+
+Campos:
+
+- id              (integer, PK)
+- name            (text, NOT NULL)
+- value           (text, NOT NULL)    -- texto exibido (telefone, e-mail, descrição)
+- url             (text, NOT NULL)
+- icon_path       (text, NOT NULL)    -- caminho do ícone SVG
+Registros:
+1 | 'Whatsapp' | '(34) 98412-5832'                          | ' https://wa.me/5534984125832 '                       | '/logo-icons/whatsapp.svg'
+2 | 'Email'    | ' bentosouzaleonardo@gmail.com '             | 'mailto: bentosouzaleonardo@gmail.com '              | '/logo-icons/gmail.svg'
+3 | 'GitHub'   | 'Projetos complexos e read-mes elegantes.' | ' https://github.com/leonardosouza '                 | '/logo-icons/github-icon.svg'
+4 | 'LinkedIn' | 'Detalhes das minhas implementações e mais.' | ' https://www.linkedin.com/in/leonardo-souza-bento-dev/ ' | '/logo-icons/linkedin-icon.svg'
+
+TABELA: tech_areas
+(grupos de tecnologias: front / back)
+
+Campos:
+
+- id              (text, PK)      -- 'front' ou 'back'
+- title           (text, NOT NULL)
+Registros:
+'front' | 'Front-End'
+'back'  | 'Back-end'
+
+TABELA: tech_area_descriptions
+(textos em lista para cada área de tecnologia)
+
+Campos:
+
+- id              (integer, PK)
+- area_id         (text, FK -> tech_areas.id)
+- description     (text, NOT NULL)
+Registros:
+1 | 'front' | 'React, Next.js, JavaScript e TypeScript'
+2 | 'front' | 'CSS, Tailwind CSS e Styled Components'
+3 | 'front' | 'Shadcn UI'
+4 | 'back'  | 'Node.js e Express (APIs REST)'
+5 | 'back'  | 'Firebase (Authentication e Firestore)'
+6 | 'back'  | 'Noções de Banco de Dados SQL'
+
+TABELA: tech_area_icons
+(ícones usados para representar cada área)
+
+Campos:
+
+- id              (integer, PK)
+- area_id         (text, FK -> tech_areas.id)
+- icon_name       (text, NOT NULL)   -- nome lógico do ícone
+- icon_path       (text, NOT NULL)   -- caminho do SVG
+Registros:
+-- Área 'front'
+1 | 'front' | 'react'            | '/logo-icons/react.svg'
+2 | 'front' | 'javascript'       | '/logo-icons/javascript.svg'
+3 | 'front' | 'typescript'       | '/logo-icons/typescript.svg'
+4 | 'front' | 'nextJs'           | '/logo-icons/nextdotjs.svg'
+5 | 'front' | 'tailwindCSS'      | '/logo-icons/tailwindcss.svg'
+6 | 'front' | 'styledComponents' | '/logo-icons/styledcomponents.svg'
+7 | 'front' | 'shacnUI'          | '/logo-icons/shadcnui.svg'
+
+-- Área 'back'
+8 | 'back'  | 'node'             | '/logo-icons/node.svg'
+9 | 'back'  | 'axios'            | '/logo-icons/axios.svg'
+10| 'back'  | 'express'          | '/logo-icons/express.svg'
+11| 'back'  | 'firebaseAuth'     | '/logo-icons/googlecloud.svg'
+12| 'back'  | 'postgres'         | '/logo-icons/postgres.svg'
+13| 'back'  | 'firebaseFirestore'| '/logo-icons/firebase.svg'
+
+(OBS: alguns ícones aqui vêm de imageIconPaths.js; você pode ajustar quais quer realmente usar.)
+
+TABELA: about_experience
+(texto sobre experiência/sobre mim)
+
+Campos:
+
+- id              (integer, PK)
+- content         (text, NOT NULL)
+Registros:
+1 |
+"Após quase dois anos criando sites com React, ganhei bastante experiência na resolução de problemas relacionados a CSS e problemas das linguagens JavaScript e TypeScript e suas respectivas sintaxes. Além disso, tenho conhecimento em padrões de design de interface, como demonstrado no meu projeto Gerador de CSS. Aprendi sobre os comandos do VS Code, como estruturar e nomear arquivos e pastas, para ter um projeto todo organizado, como nomear funções e variáveis, e como realizar commits semânticos adequados para cada tipo de alteração. Também tenho experiência básica na programação de APIs e integrações com front-end e conhecimentos básicos em bancos de dados e SQL."
+
+TABELA: implementation_categories
+(categorias de implementações: front/back)
+
+Campos:
+
+- id              (text, PK)      -- 'front' ou 'back'
+- name            (text, NOT NULL)
+Registros:
+'front' | 'Front-End'
+'back'  | 'Back-end'
+
+TABELA: implementations
+(funcionalidades já implementadas)
+
+Campos:
+
+- id              (integer, PK)
+- category_id     (text, FK -> implementation_categories.id)
+- icon_name       (text, NULL)    -- nome do ícone (lucide-react), apenas referência textual
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+Registros:
+-- Categoria 'front'
+1 | 'front' | 'Search'           | 'Sugestões de pesquisa inteligente'          | 'Função javascript completa para sugerir buscar dados e sugerir termos de pesquisa'
+2 | 'front' | 'LayoutDashboard'  | 'Atualização dinâmica de layouts e larguras' | 'Layouts e larguras corrigidos via javascript para diferentes telas'
+3 | 'front' | 'GalleryThumbnails'| 'Rolagem de conteúdo via mouse'              | 'Muito conveniente para dispositivos desktop, mas indisponível nativamente'
+4 | 'front' | 'ListStart'        | 'Rolagem automática programada'              | 'Rolagem conveniente para mostrar conteúdo ao usuário'
+
+-- Categoria 'back'
+5 | 'back'  | 'User'             | 'API completa + Login com Google'            | 'Autenticação rápida com Google Auth'
+6 | 'back'  | 'Database'         | 'Integração com Firebase Firestore'          | 'Integração com Firebase Firestore'
+7 | 'back'  | 'MapPinned'        | 'Preenchimento automático de endereço'       | 'Convertendo coordenadas para API do google maps'
+8 | 'back'  | 'ShieldCheck'      | 'Validação de formulário'                    | 'Validação de formulário'
+
+TABELA: ui_patterns
+(padrões de interface que você usa)
+
+Campos:
+
+- id              (integer, PK)
+- icon_name       (text, NULL)    -- nome do ícone (lucide-react)
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+Registros:
+1 | 'ALargeSmall' | 'Escala tipográfica coerente'              | 'O arquivo typography.css tem os estilos tipográficos'
+2 | 'SwatchBook'  | 'Estilos padronizados com variáveis'       | 'No arquivo globals.css'
+3 | 'BrickWall'   | 'Componentes reutilizáveis Shadcn'         | 'Até mesmo nesta página de portfólio'
+4 | 'ChartGantt'  | 'Boa organização de código'                | 'Aquivos e pastas do projeto bem organizados'
+5 | 'Smartphone'  | 'Aplicação de mobile first'                | 'Design mobile refinado'
+6 | 'User'        | 'Boa experiência de uso'                   | 'Designs conhecidos e de navegação intuitiva'
+
+TABELA: projects
+(projetos do portfólio)
+
+Campos:
+
+- id              (text, PK)      -- 'supermercado', 'catalogo', etc.
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+- image_path      (text, NOT NULL)
+- site_url        (text, NOT NULL)
+- github_url      (text, NULL)
+- main_label      (text, NULL)    -- destaque principal (tecnologia principal)
+Registros:
+'supermercado' |
+'supermercado do bom' |
+'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com Google e para captura de endereço por coordenadas via Google Maps...' |
+'./projects/supermercado.png' |
+' https://supermercadodobom.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/SupermercadoDoBom ' |
+'Styled Components'
+
+'catalogo' |
+'catálogo de roupas' |
+'Um projeto feito em Next.js que permitiria a criação e hospedagem de catálogos de roupas para vários lojistas, todos sob o mesmo domínio...' |
+'./projects/catalogo.png' |
+' https://catalogo-de-roupas.vercel.app/ ' |
+' https://github.com/LeonardoSouzaBento/CatalogoDeRoupas ' |
+'Next.js'
+
+'css' |
+'gerador de CSS' |
+'Um site para gerar dinamicamente estilos em CSS para hierarquia tipográfica, para botões e para montar paletas de cores. Inspira a normalização e a estruturação de estilos...' |
+'./projects/gerador-de-css.png' |
+' https://geradordecss.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/GeradorDeCSS ' |
+'Tailwind CSS'
+
+'filmes' |
+'meus filmes favoritos' |
+'Confira uma lista de filmes calmos para pessoas empáticas e reflexivas, que valorizam a história, a justiça e a fé em ideais.' |
+'./projects/filmes-favoritos.png' |
+' https://filmesfavoritos.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/MeusFilmesFavoritos ' |
+'HTML e CSS'
+
+'pet-shop' |
+'Leo Pet Shop' |
+'A landing page de visual belíssimo do grupo Leo Pet Shop. Feita para gerar conversões para o WhatsApp da empresa.' |
+'./projects/leopetshop.png' |
+' https://leopetshop.netlify.app ' |
+' https://github.com/LeonardoSouzaBento/Pet-ShopLandingPage ' |
+NULL
+
+TABELA: project_labels
+(labels/tecnologias associadas a cada projeto)
+
+Campos:
+
+- id              (integer, PK)
+- project_id      (text, FK -> projects.id)
+- label           (text, NOT NULL)
+Registros:
+-- supermercado
+1  | 'supermercado' | 'Firebase'
+2  | 'supermercado' | 'Node.js'
+3  | 'supermercado' | 'Express'
+
+-- catalogo
+4  | 'catalogo'     | 'TypeScript'
+5  | 'catalogo'     | 'Tailwind CSS'
+6  | 'catalogo'     | 'Shadcn UI'
+
+-- css
+7  | 'css'          | 'Radix UI'
+
+-- filmes
+8  | 'filmes'       | 'HTML'
+9  | 'filmes'       | 'CSS'
+10 | 'filmes'       | 'JavaScript'
+
+-- pet-shop
+11 | 'pet-shop'     | 'Tailwind CSS'
+12 | 'pet-shop'     | 'Radix UI'
