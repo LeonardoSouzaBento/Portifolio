@@ -70,14 +70,12 @@
   --color-border: oklab(88.75800000000001% -0.00519 -0.00169);
   --color-input-border: hsl(188 10% 69%);
   --color-input-bg: hsl(190 5% 97%);
-  --color-white: #ffffff;
-  --color-black: #222;
   --color-selected: oklch(80.9% 0.105 251.813);
   --color-light-bg: hsl(0, 0%, 100%);
-  --color-medium-bg: hsl(0, 0%, 97%);
+  --color-medium-bg: hsl(0, 0%, 97.5%);
   --color-dark-bg: hsl(0, 20%, 95%);
   --color-foreground: oklch(0.141 0.005 285.823);
-  --color-card: oklch(1 0 0);
+  --color-card-background: hsla(0, 0%, 100%, 0.8);
   --color-primary: #006d77;
   --color-primary-foreground: oklch(0.97 0.014 254.604);
   --color-secondary: oklch(0.967 0.001 286.375);
@@ -90,9 +88,57 @@
   --color-sidebar: oklch(0.985 0 0);
 }
 
+@layer base {
+  .dark {
+    /* Cores de fundo e superfícies */
+    --color-light-bg: #0d1a1d;
+    --color-medium-bg: #0a1214;
+    --color-dark-bg: #050809;
+    --color-foreground: #e0f2f1;
+    --color-card: rgba(26, 46, 50, 0.8);
+    --color-card-foreground: #e0f2f1;
+    --color-muted-foreground: #a1c0c4;
+    --color-border: #1a2e32;
+    --color-input-border: #254a4f;
+    --color-input-bg: #0a1214;
+    --color-selected: rgba(78, 205, 196, 0.2);
+
+    /* Escala Primária (Verde Petróleo ajustado) */
+    --color-primary: #4ecdc4;
+    --color-primary-50: #050809;
+    --color-primary-100: #0a1214;
+    --color-primary-200: #0d1a1d;
+    --color-primary-300: #1a2e32;
+    --color-primary-400: #254a4f;
+    --color-primary-500: #30656a;
+    --color-primary-600: #3b8086;
+    --color-primary-700: #4ecdc4;
+    --color-primary-800: #71d7d0;
+    --color-primary-900: #94e1dc;
+    --color-primary-950: #b7ece8;
+
+    /* Escala Secundária (Azul ajustado) */
+    --color-secondary-400: #61b3fa;
+    --color-secondary-500: #7dc3fb;
+    --color-secondary-600: #99d3fc;
+
+    /* Ícones e outros */
+    --color-icon-fill: rgba(78, 205, 196, 0.1);
+
+    /* Sombras Dark (Mais profundas e escuras) */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.8);
+    --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.9);
+    --shadow-2xl: 0 30px 60px -15px rgba(0, 0, 0, 0.95);
+    --shadow-profile: 0 0 40px -8px rgba(78, 205, 196, 0.3), 0 0 100px -20px rgba(0, 0, 0, 0.5);
+  }
+}
+
 @layer components {
   * {
-    @apply [&>svg]:shrink-0;
+    @apply [&>svg]:shrink-0 transition-colors duration-300;
     cursor: default;
     box-sizing: border-box;
     border-color: var(--color-border);

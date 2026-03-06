@@ -1,100 +1,9 @@
 NÍCIO DO CONTEÚDO PARA allData.txt
 
-Modelo de banco de dados relacional (PostgreSQL) para o portfólio
-
-TABELA: sections
-(descreve os títulos das seções da página)
-
-Campos:
-
-- id              (integer, PK)
-- title           (text, NOT NULL)
-- keyword         (text, NOT NULL)
-- subtitle        (text, NULL)
-Registros:
-1 | 'Redes sociais'       | 'redes sociais' | NULL
-2 | 'Tecnologias'         | 'tecnologias'   | NULL
-3 | 'Sobre mim'           | 'sobre mim'     | 'Saiba que tipo de pessoa sou'
-4 | 'Projetos'            | 'projetos'      | 'Visualize alguns dos projetos que criei'
-5 | 'Minha experiência'   | 'experiencia'   | 'Funcionalidades que já implementei'
-
-TABELA: contact_links
-(links de contato/redes sociais)
-
-Campos:
-
-- id              (integer, PK)
-- name            (text, NOT NULL)
-- value           (text, NOT NULL)    -- texto exibido (telefone, e-mail, descrição)
-- url             (text, NOT NULL)
-- icon_path       (text, NOT NULL)    -- caminho do ícone SVG
-Registros:
-1 | 'Whatsapp' | '(34) 98412-5832'                          | ' https://wa.me/5534984125832 '                       | '/logo-icons/whatsapp.svg'
-2 | 'Email'    | ' bentosouzaleonardo@gmail.com '             | 'mailto: bentosouzaleonardo@gmail.com '              | '/logo-icons/gmail.svg'
-3 | 'GitHub'   | 'Projetos complexos e read-mes elegantes.' | ' https://github.com/leonardosouza '                 | '/logo-icons/github-icon.svg'
-4 | 'LinkedIn' | 'Detalhes das minhas implementações e mais.' | ' https://www.linkedin.com/in/leonardo-souza-bento-dev/ ' | '/logo-icons/linkedin-icon.svg'
-
-TABELA: tech_areas
-(grupos de tecnologias: front / back)
-
-Campos:
-
-- id              (text, PK)      -- 'front' ou 'back'
-- title           (text, NOT NULL)
-Registros:
-'front' | 'Front-End'
-'back'  | 'Back-end'
-
-TABELA: tech_area_descriptions
-(textos em lista para cada área de tecnologia)
-
-Campos:
-
-- id              (integer, PK)
-- area_id         (text, FK -> tech_areas.id)
-- description     (text, NOT NULL)
-Registros:
-1 | 'front' | 'React, Next.js, JavaScript e TypeScript'
-2 | 'front' | 'CSS, Tailwind CSS e Styled Components'
-3 | 'front' | 'Shadcn UI'
-4 | 'back'  | 'Node.js e Express (APIs REST)'
-5 | 'back'  | 'Firebase (Authentication e Firestore)'
-6 | 'back'  | 'Noções de Banco de Dados SQL'
-
-TABELA: tech_area_icons
-(ícones usados para representar cada área)
-
-Campos:
-
-- id              (integer, PK)
-- area_id         (text, FK -> tech_areas.id)
-- icon_name       (text, NOT NULL)   -- nome lógico do ícone
-- icon_path       (text, NOT NULL)   -- caminho do SVG
-Registros:
--- Área 'front'
-1 | 'front' | 'react'            | '/logo-icons/react.svg'
-2 | 'front' | 'javascript'       | '/logo-icons/javascript.svg'
-3 | 'front' | 'typescript'       | '/logo-icons/typescript.svg'
-4 | 'front' | 'nextJs'           | '/logo-icons/nextdotjs.svg'
-5 | 'front' | 'tailwindCSS'      | '/logo-icons/tailwindcss.svg'
-6 | 'front' | 'styledComponents' | '/logo-icons/styledcomponents.svg'
-7 | 'front' | 'shacnUI'          | '/logo-icons/shadcnui.svg'
-
--- Área 'back'
-8 | 'back'  | 'node'             | '/logo-icons/node.svg'
-9 | 'back'  | 'axios'            | '/logo-icons/axios.svg'
-10| 'back'  | 'express'          | '/logo-icons/express.svg'
-11| 'back'  | 'firebaseAuth'     | '/logo-icons/googlecloud.svg'
-12| 'back'  | 'postgres'         | '/logo-icons/postgres.svg'
-13| 'back'  | 'firebaseFirestore'| '/logo-icons/firebase.svg'
-
-(OBS: alguns ícones aqui vêm de imageIconPaths.js; você pode ajustar quais quer realmente usar.)
-
 TABELA: about_experience
 (texto sobre experiência/sobre mim)
 
 Campos:
-
 - id              (integer, PK)
 - content         (text, NOT NULL)
 Registros:
@@ -135,7 +44,7 @@ Registros:
 7 | 'back'  | 'MapPinned'        | 'Preenchimento automático de endereço'       | 'Convertendo coordenadas para API do google maps'
 8 | 'back'  | 'ShieldCheck'      | 'Validação de formulário'                    | 'Validação de formulário'
 
-TABELA: ui_patterns
+TABELA: project_patterns
 (padrões de interface que você usa)
 
 Campos:
@@ -164,6 +73,8 @@ Campos:
 - site_url        (text, NOT NULL)
 - github_url      (text, NULL)
 - main_label      (text, NULL)    -- destaque principal (tecnologia principal)
+- labels (array de varchar )
+
 Registros:
 'supermercado' |
 'supermercado do bom' |

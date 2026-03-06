@@ -30,7 +30,7 @@ export const SocialMedia = () => {
           >
             <div className={`flex gap-2 items-center`}>
               <img
-                className={`inline-flex opacity-80 ${index !== 1 ? "size-5 -mb-1" : "size-4 -mb-1.5"}`}
+                className={`inline-flex text-white ${index !== 1 ? "size-5 -mb-1" : "size-4 -mb-1.5"}`}
                 src={item.icon}
                 alt={item.name}
               />

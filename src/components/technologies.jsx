@@ -8,7 +8,7 @@ const title = findTitle('tecnologias');
 export const Technologies = () => {
   return (
     <Card id={title.keyWord} className="home-section">
-      <CardHeader>
+      <CardHeader className="mb-0.5">
         <CardTitle>
           <h3>{title.title}</h3>
         </CardTitle>
