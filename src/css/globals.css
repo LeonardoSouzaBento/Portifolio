@@ -1,0 +1,209 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Tamanho */
+  --font-default: 'Zen Kaku Gothic New', sans-serif;
+  /* --font-default: "Inter", sans-serif; */
+  /* breakpoints */
+  --breakpoint-bp-min:: 320px;
+  --breakpoint-bp-3: 375px;
+  --breakpoint-bp-4: 425px;
+  --breakpoint-bp-5: 575px;
+  --breakpoint-bp-6: 640px;
+  --breakpoint-bp-7: 704px;
+  --breakpoint-bp-8: 840px;
+  --breakpoint-bp-9: 980px;
+  /* Tamanhos de fonte */
+  --text-bp-3: 0.790123em;
+  --text-sm: 0.888889em;
+  --text-base: 1em;
+  --text-lg: 1.125em;
+  --text-h6: 1.125em;
+  --text-h5: 1.265625em;
+  --text-h4: 1.423828em;
+  --text-h3: 1.601807em;
+  --text-h2: 1.802032em;
+  --text-h1: 2.027287em;
+  --text-h1-hero: 2.280697em;
+  --text-button: 0.89em;
+  --text-sm-button: 0.863em;
+  --text-lg-button: 1em;
+  /* Espaçamentos textuais */
+  --spacing-cap-offset: calc(1cap - ((1em - 1cap) / 2));
+  --spacing-ex-offset: calc(1ex - ((1em - 1cap) / 2));
+  /* Sombras */
+  --shadow-bp-3: 0 1px 2px 0 rgba(97, 218, 251, 0.15);
+  --shadow-sm: 0 2px 4px 0 rgba(97, 218, 251, 0.2);
+  --shadow-md: 0 4px 12px -2px rgba(97, 218, 251, 0.25);
+  --shadow-lg: 0 10px 25px -5px rgba(97, 218, 251, 0.3);
+  --shadow-xl: 0 20px 40px -10px rgba(97, 218, 251, 0.35);
+  --shadow-2xl: 0 30px 60px -15px rgba(97, 218, 251, 0.4);
+  --shadow-profile: 0 0 40px -8px rgba(97, 218, 251, 0.5), 0 0 100px -20px rgba(97, 218, 251, 0.2);
+  /* Cores */
+  --color-primary-50: #eff4f5;
+  --color-primary-100: #dfeaeb;
+  --color-primary-200: #c0d5d7;
+  --color-primary-300: #a1c0c4;
+  --color-primary-400: #82abb1;
+  --color-primary-500: #63979e;
+  --color-primary-600: #41848c;
+  --color-primary-700: #006d77 /*cor principal*/;
+  --color-primary-800: #00515b;
+  --color-primary-900: #00323c;
+  --color-primary-950: #00242d;
+  --color-primary-1000: #00181f;
+  --color-icon-fill: hsla(185, 23%, 90%, 0.3);
+  /* secondary #61b3fa */
+  --color-secondary-50: #eff5ff;
+  --color-secondary-100: #deecfe;
+  --color-secondary-200: #bbd9fd;
+  --color-secondary-300: #95c7fc;
+  --color-secondary-400: #61b3fa /*Sua cor*/;
+  --color-secondary-500: #3d97dc;
+  --color-secondary-600: #007abc;
+  --color-secondary-700: #005e9d;
+  --color-secondary-800: #00437e;
+  --color-secondary-900: #002a61;
+  --color-secondary-950: #001f53;
+  --color-secondary-1000: #001345;
+  /* cores neutras */
+  --color-card-foreground: hsl(194 18% 18%);
+  --color-muted-foreground: hsl(187 11% 38%);
+  --color-border: oklab(88.75800000000001% -0.00519 -0.00169);
+  --color-input-border: hsl(188 10% 69%);
+  --color-input-bg: hsl(190 5% 97%);
+  --color-selected: oklch(80.9% 0.105 251.813);
+  --color-light-bg: hsl(0, 0%, 100%);
+  --color-medium-bg: hsl(0, 0%, 97.5%);
+  --color-dark-bg: hsl(0, 20%, 95%);
+  --color-foreground: oklch(0.141 0.005 285.823);
+  --color-card-background: hsla(0, 0%, 100%, 0.8);
+  --color-primary: #006d77;
+  --color-primary-foreground: oklch(0.97 0.014 254.604);
+  --color-secondary: oklch(0.967 0.001 286.375);
+  --color-secondary-foreground: oklch(0.21 0.006 285.885);
+  --color-muted: oklch(0.967 0.001 286.375);
+  --color-accent: oklch(0.967 0.001 286.375);
+  --color-accent-foreground: oklch(0.21 0.006 285.885);
+  --color-input: oklch(0.92 0.004 286.32);
+  --color-ring: oklch(0.708 0 0);
+  --color-sidebar: oklch(0.985 0 0);
+}
+
+@layer base {
+  .dark {
+    /* Cores de fundo e superfícies */
+    --color-light-bg: #0d1a1d;
+    --color-medium-bg: #0a1214;
+    --color-dark-bg: #050809;
+    --color-foreground: #e0f2f1;
+    --color-card: rgba(26, 46, 50, 0.8);
+    --color-card-foreground: #e0f2f1;
+    --color-muted-foreground: #a1c0c4;
+    --color-border: #1a2e32;
+    --color-input-border: #254a4f;
+    --color-input-bg: #0a1214;
+    --color-selected: rgba(78, 205, 196, 0.2);
+
+    /* Escala Primária (Verde Petróleo ajustado) */
+    --color-primary: #4ecdc4;
+    --color-primary-50: #050809;
+    --color-primary-100: #0a1214;
+    --color-primary-200: #0d1a1d;
+    --color-primary-300: #1a2e32;
+    --color-primary-400: #254a4f;
+    --color-primary-500: #30656a;
+    --color-primary-600: #3b8086;
+    --color-primary-700: #4ecdc4;
+    --color-primary-800: #71d7d0;
+    --color-primary-900: #94e1dc;
+    --color-primary-950: #b7ece8;
+
+    /* Escala Secundária (Azul ajustado) */
+    --color-secondary-400: #61b3fa;
+    --color-secondary-500: #7dc3fb;
+    --color-secondary-600: #99d3fc;
+
+    /* Ícones e outros */
+    --color-icon-fill: rgba(78, 205, 196, 0.1);
+
+    /* Sombras Dark (Mais profundas e escuras) */
+    --shadow-bp-3: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.8);
+    --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.9);
+    --shadow-2xl: 0 30px 60px -15px rgba(0, 0, 0, 0.95);
+    --shadow-profile: 0 0 40px -8px rgba(78, 205, 196, 0.3), 0 0 100px -20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer components {
+  * {
+    @apply [&>svg]:shrink-0 transition-colors duration-300;
+    cursor: default;
+    box-sizing: border-box;
+    border-color: var(--color-border);
+    outline-color: var(--color-border);
+    font-family: var(--font-default);
+    /* scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-200) !important;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* remover scrollbar da página */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  html,
+  body,
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+  /* estilos básicos */
+  body {
+    @apply font-medium bg-linear-to-br from-light-bg to-dark-bg;
+  }
+  img {
+    background-color: var(--color-light-bg);
+    user-select: none;
+    position: relative;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+  }
+  img,
+  button,
+  a {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+  }
+
+  main {
+    @apply px-3 md:px-6 lg:px-12;
+  }
+  h3,
+  h1 {
+    @apply text-primary-700;
+  }
+  a {
+    @apply leading-none;
+  }
+}

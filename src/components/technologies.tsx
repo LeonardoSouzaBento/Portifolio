@@ -1,0 +1,55 @@
+import React from 'react';
+import { findTitle } from '@/utils/findTitle';
+import { technologiesData } from '../data/technologiesData';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Separator } from '@/ui';
+
+const title = findTitle('tecnologias');
+
+export const Technologies = () => {
+  if (!title) return null;
+  return (
+    <Card id={title.keyWord} className="home-section">
+      <CardHeader className="mb-0.5">
+        <CardTitle className="">
+          <h3>{title.title}</h3>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="grid grid-cols-1 bp-9:grid-cols-2 gap-4">
+        {technologiesData.map(({ id, title, list, icons }) => (
+          <ListWrapper key={id} subtitle={title}>
+            <div className="max-w-max grid grid-cols-1 sm:grid-cols-[2.5fr_1fr] gap-4 sm:flex-row
+            lg:grid-cols-1 ">
+              <ul className="list-disc list-inside space-y-1">
+                {list.map((tech) => (
+                  <li key={tech} className="[&]:marker:text-xs [&]:marker:text-primary">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              <div
+                className="w-full flex flex-wrap justify-between gap-3
+                bp-3:grid grid-cols-7 max-w-72 sm:grid-cols-3 lg:flex">
+                {icons.map((icon) => {
+                  const next = icon === '/logo-icons/nextdotjs.svg' ? 'size-11 -mt-1' : '';
+                  return <img key={icon} src={icon} alt="" className={next || 'size-6'} />;
+                })}
+              </div>
+            </div>
+          </ListWrapper>
+        ))}
+      </CardContent>
+    </Card>
+  );
+};
+
+const ListWrapper = ({ children, subtitle }: { children: React.ReactNode; subtitle: string }) => {
+  return (
+    <div className="px-1.5 pt-1 pb-3 rounded-md [&>div]:space-y-2">
+      <p className={`text-lg font-bold tracking-tight text-muted-foreground`}>{subtitle}</p>
+      <Separator className="mb-2 border-border/75" />
+      <div>{children}</div>
+    </div>
+  );
+};

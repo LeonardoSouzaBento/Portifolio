@@ -1,0 +1,190 @@
+@import 'tailwindcss';
+@import './globals.css';
+
+@layer components {
+  /* 18.6px - 20.2px */
+  body {
+    @apply text-[1.1625rem] sm:text-[1.2125rem] md:text-[1.2225rem] 
+    lg:text-[1.2425rem] xl:text-[1.2625rem] 2xl:text-[1.2825rem];
+  }
+
+  .smaller-text {
+    @apply text-xs;
+  }
+
+  .small-text,
+  label {
+    @apply text-sm;
+  }
+
+  .normal-text,
+  li,
+  input,
+  select,
+  option {
+    @apply text-base;
+  }
+
+  .large-text {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-h6;
+  }
+
+  h5 {
+    @apply text-h5;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+
+  .h1-hero {
+    @apply text-h1-hero;
+  }
+
+  button,
+  .normal-button {
+    @apply text-button;
+  }
+
+  .small-button {
+    @apply text-sm-button;
+  }
+
+  .large-button {
+    @apply text-lg-button;
+  }
+}
+
+@layer components {
+  /* LETTERING-SPACING */
+  h1 {
+    @apply tracking-[-0.02em]; /* ou -0.01em */
+  }
+  h2 {
+    @apply tracking-[-0.015em]; /* ou 0*/
+  }
+  button,
+  .normal-button {
+    @apply tracking-[0.05em]; /* ou 0.1em*/
+  }
+  a {
+    @apply tracking-[0.02em]; /* ou 0.02em*/
+  }
+  /* LARGURA MÁXIMA DO CORPO */
+  p {
+    @apply max-w-[65ch] sm:max-w-[73ch] 
+    md:max-w-[75ch] lg:max-w-[78ch] xl:max-w-[82ch] 
+    2xl:max-w-[85ch];
+  }
+
+  /* PESOS 300, 400, 500, 700, 900 */
+  input::placeholder,
+  .helper-text,
+  .description-text {
+    @apply font-normal;
+  }
+
+  p,
+  li,
+  input,
+  select,
+  option {
+    @apply font-medium;
+  }
+
+  h6,
+  h5,
+  h4,
+  strong {
+    @apply font-bold;
+  }
+
+  a,
+  .normal-button,
+  label,
+  .small-button,
+  .big-link,
+  .small-link {
+    @apply font-bold;
+  }
+
+  h3,
+  h2 {
+    @apply font-extrabold;
+  }
+
+  h1 {
+    @apply font-extrabold;
+  }
+}
+
+@layer components {
+  /* LINE HEIGHTS */
+  .h1-hero {
+    @apply leading-[1.1];
+  }
+  h1 {
+    @apply leading-[1.22];
+  }
+  h2 {
+    @apply leading-[1.24];
+  }
+  h3 {
+    @apply leading-[1.28];
+  }
+  h4 {
+    @apply leading-[1.32];
+  }
+  h5 {
+    @apply leading-[1.38];
+  }
+  h6 {
+    @apply leading-[1.44];
+  }
+
+  p,
+  li,
+  input,
+  select,
+  option {
+    @apply leading-[1.52];
+  }
+
+  label {
+    @apply leading-[1.35];
+  }
+
+  .normal-button,
+  button {
+    @apply leading-none;
+  }
+
+  .large-text {
+    @apply leading-[1.68];
+  }
+  .normal-text {
+    @apply leading-normal;
+  }
+  .small-text {
+    @apply leading-[1.6];
+  }
+  .smaller-text {
+    @apply leading-normal;
+  }
+}

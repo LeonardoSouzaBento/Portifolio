@@ -1,0 +1,148 @@
+NÍCIO DO CONTEÚDO PARA allData.txt
+
+TABELA: about_experience
+(texto sobre experiência/sobre mim)
+
+Campos:
+- id              (integer, PK)
+- content         (text, NOT NULL)
+Registros:
+1 |
+"Após quase dois anos criando sites com React, ganhei bastante experiência na resolução de problemas relacionados a CSS e problemas das linguagens JavaScript e TypeScript e suas respectivas sintaxes. Além disso, tenho conhecimento em padrões de design de interface, como demonstrado no meu projeto Gerador de CSS. Aprendi sobre os comandos do VS Code, como estruturar e nomear arquivos e pastas, para ter um projeto todo organizado, como nomear funções e variáveis, e como realizar commits semânticos adequados para cada tipo de alteração. Também tenho experiência básica na programação de APIs e integrações com front-end e conhecimentos básicos em bancos de dados e SQL."
+
+TABELA: implementation_categories
+(categorias de implementações: front/back)
+
+Campos:
+
+- id              (text, PK)      -- 'front' ou 'back'
+- name            (text, NOT NULL)
+Registros:
+'front' | 'Front-End'
+'back'  | 'Back-end'
+
+TABELA: implementations
+(funcionalidades já implementadas)
+
+Campos:
+
+- id              (integer, PK)
+- category_id     (text, FK -> implementation_categories.id)
+- icon_name       (text, NULL)    -- nome do ícone (lucide-react), apenas referência textual
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+Registros:
+-- Categoria 'front'
+1 | 'front' | 'Search'           | 'Sugestões de pesquisa inteligente'          | 'Função javascript completa para sugerir buscar dados e sugerir termos de pesquisa'
+2 | 'front' | 'LayoutDashboard'  | 'Atualização dinâmica de layouts e larguras' | 'Layouts e larguras corrigidos via javascript para diferentes telas'
+3 | 'front' | 'GalleryThumbnails'| 'Rolagem de conteúdo via mouse'              | 'Muito conveniente para dispositivos desktop, mas indisponível nativamente'
+4 | 'front' | 'ListStart'        | 'Rolagem automática programada'              | 'Rolagem conveniente para mostrar conteúdo ao usuário'
+
+-- Categoria 'back'
+5 | 'back'  | 'User'             | 'API completa + Login com Google'            | 'Autenticação rápida com Google Auth'
+6 | 'back'  | 'Database'         | 'Integração com Firebase Firestore'          | 'Integração com Firebase Firestore'
+7 | 'back'  | 'MapPinned'        | 'Preenchimento automático de endereço'       | 'Convertendo coordenadas para API do google maps'
+8 | 'back'  | 'ShieldCheck'      | 'Validação de formulário'                    | 'Validação de formulário'
+
+TABELA: project_patterns
+(padrões de interface que você usa)
+
+Campos:
+
+- id              (integer, PK)
+- icon_name       (text, NULL)    -- nome do ícone (lucide-react)
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+Registros:
+1 | 'ALargeSmall' | 'Escala tipográfica coerente'              | 'O arquivo typography.css tem os estilos tipográficos'
+2 | 'SwatchBook'  | 'Estilos padronizados com variáveis'       | 'No arquivo globals.css'
+3 | 'BrickWall'   | 'Componentes reutilizáveis Shadcn'         | 'Até mesmo nesta página de portfólio'
+4 | 'ChartGantt'  | 'Boa organização de código'                | 'Aquivos e pastas do projeto bem organizados'
+5 | 'Smartphone'  | 'Aplicação de mobile first'                | 'Design mobile refinado'
+6 | 'User'        | 'Boa experiência de uso'                   | 'Designs conhecidos e de navegação intuitiva'
+
+TABELA: projects
+(projetos do portfólio)
+
+Campos:
+
+- id              (text, PK)      -- 'supermercado', 'catalogo', etc.
+- name            (text, NOT NULL)
+- description     (text, NOT NULL)
+- image_path      (text, NOT NULL)
+- site_url        (text, NOT NULL)
+- github_url      (text, NULL)
+- main_label      (text, NULL)    -- destaque principal (tecnologia principal)
+- labels (array de varchar )
+
+Registros:
+'supermercado' |
+'supermercado do bom' |
+'Simula o processo de compra de um app de supermercado. Tem uma API integrada para login com Google e para captura de endereço por coordenadas via Google Maps...' |
+'./projects/supermercado.png' |
+' https://supermercadodobom.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/SupermercadoDoBom ' |
+'Styled Components'
+
+'catalogo' |
+'catálogo de roupas' |
+'Um projeto feito em Next.js que permitiria a criação e hospedagem de catálogos de roupas para vários lojistas, todos sob o mesmo domínio...' |
+'./projects/catalogo.png' |
+' https://catalogo-de-roupas.vercel.app/ ' |
+' https://github.com/LeonardoSouzaBento/CatalogoDeRoupas ' |
+'Next.js'
+
+'css' |
+'gerador de CSS' |
+'Um site para gerar dinamicamente estilos em CSS para hierarquia tipográfica, para botões e para montar paletas de cores. Inspira a normalização e a estruturação de estilos...' |
+'./projects/gerador-de-css.png' |
+' https://geradordecss.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/GeradorDeCSS ' |
+'Tailwind CSS'
+
+'filmes' |
+'meus filmes favoritos' |
+'Confira uma lista de filmes calmos para pessoas empáticas e reflexivas, que valorizam a história, a justiça e a fé em ideais.' |
+'./projects/filmes-favoritos.png' |
+' https://filmesfavoritos.netlify.app/ ' |
+' https://github.com/LeonardoSouzaBento/MeusFilmesFavoritos ' |
+'HTML e CSS'
+
+'pet-shop' |
+'Leo Pet Shop' |
+'A landing page de visual belíssimo do grupo Leo Pet Shop. Feita para gerar conversões para o WhatsApp da empresa.' |
+'./projects/leopetshop.png' |
+' https://leopetshop.netlify.app ' |
+' https://github.com/LeonardoSouzaBento/Pet-ShopLandingPage ' |
+NULL
+
+TABELA: project_labels
+(labels/tecnologias associadas a cada projeto)
+
+Campos:
+
+- id              (integer, PK)
+- project_id      (text, FK -> projects.id)
+- label           (text, NOT NULL)
+Registros:
+-- supermercado
+1  | 'supermercado' | 'Firebase'
+2  | 'supermercado' | 'Node.js'
+3  | 'supermercado' | 'Express'
+
+-- catalogo
+4  | 'catalogo'     | 'TypeScript'
+5  | 'catalogo'     | 'Tailwind CSS'
+6  | 'catalogo'     | 'Shadcn UI'
+
+-- css
+7  | 'css'          | 'Radix UI'
+
+-- filmes
+8  | 'filmes'       | 'HTML'
+9  | 'filmes'       | 'CSS'
+10 | 'filmes'       | 'JavaScript'
+
+-- pet-shop
+11 | 'pet-shop'     | 'Tailwind CSS'
+12 | 'pet-shop'     | 'Radix UI'

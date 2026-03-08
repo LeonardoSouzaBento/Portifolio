@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@import './globals.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@layer components {
+  .react-pattern {
+    @apply fixed top-0 left-0 w-full h-full z-[-1] opacity-15 pointer-events-none;
+  }
+  .react-icon {
+    @apply absolute;
+    fill: #61dafb;
+    animation: float 20s infinite linear;
+  }
+  .react-icon.small {
+    @apply w-10 h-10 opacity-50;
+  }
+  .react-icon.medium {
+    @apply w-16 h-16 opacity-70;
+  }
+  .react-icon.large {
+    @apply w-24 h-24 opacity-30;
+  }
+  /* Animações de flutuação */
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-1000px) rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,73 @@
+import type { ComponentProps } from 'react';
+
+import { cn } from '@/lib/utils';
+
+interface CardProps extends ComponentProps<'section'> {
+  hasheader?: boolean;
+}
+
+function Card({ className, hasheader = true, ...props }: CardProps) {
+  return (
+    <section
+      data-slot="card"
+      className={cn(
+        `w-full bg-card text-card-foreground bg-card-background border border-border/33 rounded-xl 
+        py-6 shadow-md max-w-6xl hover:shadow-lg transition-all duration-200 flex flex-col`,
+        hasheader ? 'p-6 pt-3.5' : 'p-6',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function CardHeader({ className, ...props }: ComponentProps<'div'>) {
+  return <div data-slot="card-header" className={cn("mb-2", className)} {...props} />;
+}
+
+function CardTitle({ className, ...props }: ComponentProps<'div'>) {
+  return <div data-slot="card-title" className={cn(className)} {...props} />;
+}
+
+function CardDescription({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn('text-muted-foreground', className)}
+      {...props}
+    />
+  );
+}
+
+function CardAction({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-action"
+      className={cn('col-start-2 row-span-2 row-start-1 self-start justify-self-end', className)}
+      {...props}
+    />
+  );
+}
+
+function CardContent({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-content"
+      className={cn('flex flex-col gap-[1ex]', className)}
+      {...props}
+    />
+  );
+}
+
+function CardFooter({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn('flex items-center px-6 [.border-t]:pt-6', className)}
+      {...props}
+    />
+  );
+}
+
+export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle };
+
