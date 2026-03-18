@@ -177,6 +177,7 @@
   }
   /* estilos básicos */
   body {
+    overscroll-behavior-x: none;
     @apply font-medium bg-linear-to-br from-light-bg to-dark-bg;
   }
   img {
